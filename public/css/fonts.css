@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Gotham Black Regular';
+    src: url('../fonts/Gotham Black Regular/Gotham\ Black\ Regular.ttf');
+    src: local('Gotham Black Regular'), local('Gotham Black Regular'),
+      url('../fonts/Gotham Black Regular/Gotham Black Regular.ttf') format('embedded-opentype'),
+      url('../fonts/Gotham Black Regular/Gotham Black Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica/helvetica-light-587ebe5a59211.ttf');
+    src: local('Helvetica'), local('Helvetica'),
+      url('../fonts/Helvetica/helvetica-light-587ebe5a59211.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica bold';
+    src: url('../fonts/Helvetica/Helvetica-Bold.ttf');
+    src: local('Helvetica'), local('Helvetica'),
+      url('../fonts/Helvetica/Helvetica-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
