@@ -15,12 +15,17 @@
             $("#menu-bars,#items-menu >li >a").removeClass("text-white");
             $("#items-menu >li").addClass("li-black");
 
-
-
-
-
     }
-
-
   }
 
+// Menu responsive
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+    $("#btn-menu-responsive").addClass('d-none');
+  }
+
+  function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+    $("#btn-menu-responsive").removeClass('d-none');
+
+  }
