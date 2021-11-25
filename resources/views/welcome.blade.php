@@ -4,6 +4,8 @@
     @include('components.menu')
     @include('components.nuestraciudad')
     @include('components.nosotros')
+    @include('components.ministery')
+    @include('components.blog')
 
 @endsection
 

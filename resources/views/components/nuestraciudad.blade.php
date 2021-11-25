@@ -5,7 +5,7 @@
         <h1 class="titulo-gr  size-141 py-0 my-0 d-none d-md-block col-12">Nuestra Ciudad</h1>
         <h1 class="titulo-gr px-0 pt-5 size-77 py-0 my-0 d-block d-md-none col-12">Nuestra Ciudad</h1>
         <p class="col-md-7 px-md-3 text-white text-center" style="font-size: 26px">
-                BOGOTÁ - 2.600 metros más cerca de las estrellas y nuestra misión, ser un puente que conecte el cielo con nuestra ciudad.
+                Manizales - más cerca de las estrellas y nuestra misión, ser un puente que conecte el cielo con nuestra ciudad.
         </p>
     </div>
     <div class="w-100 py-md-4 my-md-5"></div>

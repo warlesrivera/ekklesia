@@ -17,20 +17,64 @@
 
 }
 
+.size-97{
+    font-size: 97px;
+
+}
+
 .size-141{
     font-size: 141px;
 }
 .size-23{
     font-size: 23px !important;
 }
+.size-21{
+    font-size: 21px !important;
+}
+
+.size-28{
+    font-size: 21px !important;
+}
+.size-37{
+    font-size: 37px !important;
+}
+.border-black{
+    border-bottom: solid black 5px;
+}
+
+.border-top-black{
+    border-top: solid black 5px;
+}
+
+.text-dark{
+    color: black !important;
+}
+.bg-dark{
+    background-color: black !important;
+    color: white !important;
+}
+
+.circle{
+    border-radius: 50%;
+}
 
 .nav-item >.nav-link{
     font-size: 23px;
 }
 
+.helvetica{
+    font-family: 'Helvetica';
+    font-weight: lighter;
+}
 .titulo-light{
     font-family: 'Helvetica';
     font-size: 17px;
+    font-weight: lighter;
+
+}
+
+.titulo-Myraid{
+    font-family: 'Myraid Pro Bold';
     font-weight: lighter;
 
 }
@@ -161,6 +205,7 @@
     top:10px;
     z-index:100;
 }
+
 #btn-menu-responsive{
     font-size:30px;
     cursor:pointer
