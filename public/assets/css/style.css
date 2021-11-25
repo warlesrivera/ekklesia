@@ -2,9 +2,30 @@
 .titulo-gr{
     font-family: 'Gotham Black Regular', "Arial";
     font-weight: 500;
-    font-size: 90px;
     color: #fff;
     overflow-x: hidden;
+}
+
+.titulo{
+    font-family: 'Gotham Black Regular', "Arial";
+    font-weight: 500;
+    color: #fff;
+    overflow-x: hidden;
+}
+.size-77{
+    font-size: 77px;
+
+}
+
+.size-141{
+    font-size: 141px;
+}
+.size-23{
+    font-size: 23px !important;
+}
+
+.nav-item >.nav-link{
+    font-size: 23px;
 }
 
 .titulo-light{
