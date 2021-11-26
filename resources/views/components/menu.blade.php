@@ -3,7 +3,7 @@
         class="navbar navbar-expand-lg navbar-light color-transparent row justify-content-end m-0 col-12 px-1">
         <a class="navbar-brand col-3 row text-center" href="#">
             <img width="70%" id="logo-white" src="{{ asset('assets/images/ekklesiaManizales.png') }}" alt="">
-            <img width="70%" id="logo-black" class="d-none" src="{{ asset('assets/images/ekklesiaManizales.png') }}" alt="">
+            <img width="70%" id="logo-black" class="d-none" src="{{ asset('assets/images/ekklesiaManizalesNegro.png') }}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

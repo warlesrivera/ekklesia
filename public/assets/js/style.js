@@ -7,6 +7,9 @@
             $("#menu-bars,#items-menu >li >a").removeClass("text-dark");
             $("#menu-bars,#items-menu >li >a").addClass("text-white");
             $("#items-menu >li").removeClass("li-black");
+            $("#logo-black").addClass('d-none');
+            $("#logo-white").removeClass('d-none');
+
     }else{
             $("#menu").addClass("menu-background-grey");
             $("#menu").removeClass("color-transparent");
@@ -14,6 +17,8 @@
             $("#items-menu >li >a").css("font-weight","500");
             $("#menu-bars,#items-menu >li >a").removeClass("text-white");
             $("#items-menu >li").addClass("li-black");
+            $("#logo-black").removeClass('d-none');
+            $("#logo-white").addClass('d-none');
 
     }
   }
@@ -21,9 +26,9 @@
 // Menu responsive
 function openNav() {
     document.getElementById("myNav").style.height = "100%";
-    $("#btn-menu-responsive").addClass('d-none');
     $("#logo-black").removeClass('d-none');
     $("#logo-white").addClass('d-none');
+    $("#btn-menu-responsive").addClass('d-none');
   }
 
   function closeNav() {
