@@ -6,6 +6,7 @@
     @include('components.nosotros')
     @include('components.ministery')
     @include('components.blog')
+    @include('components.nuevoAqui')
 
 @endsection
 
