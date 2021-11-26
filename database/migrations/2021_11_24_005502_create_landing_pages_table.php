@@ -15,7 +15,10 @@ class CreateLandingPagesTable extends Migration
     {
         Schema::create('landing_pages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('home')->nullable();
+            $table->text('nostros')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
