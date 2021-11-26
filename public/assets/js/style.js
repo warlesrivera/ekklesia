@@ -22,10 +22,14 @@
 function openNav() {
     document.getElementById("myNav").style.height = "100%";
     $("#btn-menu-responsive").addClass('d-none');
+    $("#logo-black").removeClass('d-none');
+    $("#logo-white").addClass('d-none');
   }
 
   function closeNav() {
     document.getElementById("myNav").style.height = "0%";
+    $("#logo-black").addClass('d-none');
+    $("#logo-white").removeClass('d-none');
     $("#btn-menu-responsive").removeClass('d-none');
 
   }

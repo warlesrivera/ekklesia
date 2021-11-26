@@ -7,6 +7,8 @@
     @include('components.ministery')
     @include('components.blog')
     @include('components.nuevoAqui')
-
+    @include('components.generosidad')
+    @include('components.footer')
+    @include('components.newsletter')
 @endsection
 

@@ -1,13 +1,13 @@
 /* Underline Effect*/
 .titulo-gr{
-    font-family: 'Gotham Black Regular', "Arial";
+    font-family: 'Gotham Black Regular';
     font-weight: 500;
     color: #fff;
     overflow-x: hidden;
 }
 
 .titulo{
-    font-family: 'Gotham Black Regular', "Arial";
+    font-family: 'Gotham Black Regular';
     font-weight: 500;
     color: #fff;
     overflow-x: hidden;
@@ -37,6 +37,12 @@
 }
 .size-37{
     font-size: 37px !important;
+}
+.size-66{
+    font-size: 66px !important;
+}
+.size-35{
+    font-size: 35px !important;
 }
 .border-black{
     border-bottom: solid black 5px;
@@ -92,6 +98,18 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+
+.input-decoration {
+    background-color:black;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: white;
+    color: white;
+}
+.input-decoration:focus {
+    border-color: green
 }
 .nav-item {
     position: relative;
