@@ -1,4 +1,4 @@
-<div class="col-12 p-0 m-0 item-black row">
+<div id="nosotros" class="col-12 p-0 m-0 item-black row">
     <div class="row justify-content-center col-md-5 col-12 mr-md-0 ml-md-5 mt-md-5 mx-0  px-0 pl-md-5 pr-md-0 pt-2 pt-md-2">
         <div class="col-md-12 p-0 m-0 pb-5 col-10">
             <img  width="100%" height="100%" src="{{asset('assets/images/home-persona.png')}}" alt="">

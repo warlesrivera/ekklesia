@@ -38,3 +38,12 @@ function openNav() {
     $("#btn-menu-responsive").removeClass('d-none');
 
   }
+
+$(window).on("scroll", function(){
+    if ($(this).scrollTop() >= $("#minstery").offset().top - $(this).height()+200){
+        $("#menu").css("background-color","#0e0e0e73")
+    }
+    else{
+        $("#menu").css("background-color","#ffffff00")
+    }
+});

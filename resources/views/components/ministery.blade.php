@@ -1,4 +1,4 @@
-<div class="col-12 row p-0 m-0 justify-content-between">
+<div id="minstery" class="col-12 row p-0 m-0 justify-content-between">
     <div class="col-md-5">
         <h1 class="titulo text-dark size-77 pl-md-5">
             Para tí
