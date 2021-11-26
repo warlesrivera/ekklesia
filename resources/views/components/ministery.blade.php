@@ -1,6 +1,6 @@
-<div class="col-12 row justify-content-between">
+<div class="col-12 row p-0 m-0 justify-content-between">
     <div class="col-md-5">
-        <h1 class="titulo text-dark size-77 pl-5">
+        <h1 class="titulo text-dark size-77 pl-md-5">
             Para tí
         </h1>
     </div>
@@ -8,16 +8,16 @@
         <p class="titulo-light">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti neque alias ratione officiis unde. Expedita architecto quae iusto suscipit quibusdam dolores, minima, officiis, eos tempora praesentium modi doloribus perferendis!" </p>
     </div>
     <div class="col-md-2 pt-4 ">
-        <div class="col-6  bg-dark p-3  circle text-center">
-            <p class="border-bottom titulo-Myraid">
+        <div class="col-md-6  col-4  bg-dark p-md-3 p-4 circle text-center">
+            <p class="border-bottom  pt-2 pt-md-0 titulo-Myraid">
                 DESLIZA
             </p>
         </div>
     </div>
 </div>
 
-<div class="col-12 py-2  mb-2">
-    <div id="multi-item-example" class="carousel slide carousel-multi-item col-12 row justify-content-center" data-ride="carousel">
+<div class="col-12 py-2 px-0 px-md-3 mx-0 mb-2">
+    <div id="multi-item-example" class="carousel slide carousel-multi-item col-12 row justify-content-center px-0 mx-0" data-ride="carousel">
 
         <!--Slides-->
         <div class="carousel-inner" role="listbox">
@@ -26,8 +26,8 @@
             <div class="carousel-item active">
                 <div class="row">
                     <!-- items -->
-                    <div class="col-md-3  mx-auto">
-                        <div class=" col-11 px-0 border-none border-top-black mb-2 ">
+                    <div class="col-md-3 col-12 mx-auto">
+                        <div class=" col-md-11 col-12 px-0 border-none border-top-black mb-2 ">
                         <div class="card-body row justify-content-start">
                             <h4 class="card-title py-3 my-auto helvetica titulo-bold size-37">eGROUP</h4>
                             <p class="card-text text-left helvetica">
@@ -42,8 +42,8 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3  mx-auto">
-                        <div class=" col-11 px-0 border-none border-top-black mb-2 ">
+                    <div class="col-md-3 col-12  mx-auto">
+                        <div class=" col-md-11 col-12 px-0 border-none border-top-black mb-2 ">
                         <div class="card-body row justify-content-start">
                             <h4 class="card-title py-3 my-auto helvetica titulo-bold size-37">eGROUP</h4>
                             <p class="card-text text-left helvetica">
@@ -58,8 +58,8 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3  mx-auto">
-                        <div class=" col-11 px-0 border-none border-top-black mb-2 ">
+                    <div class="col-md-3 col-12  mx-auto">
+                        <div class=" col-md-11 col-12 px-0 border-none border-top-black mb-2 ">
                         <div class="card-body row justify-content-start">
                             <h4 class="card-title py-3 my-auto helvetica titulo-bold size-37">eGROUP</h4>
                             <p class="card-text text-left helvetica">
@@ -74,8 +74,8 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3  mx-auto">
-                        <div class=" col-11 px-0 border-none border-top-black mb-2 ">
+                    <div class="col-md-3 col-12  mx-auto">
+                        <div class=" col-md-11 col-12 px-0 border-none border-top-black mb-2 ">
                         <div class="card-body row justify-content-start">
                             <h4 class="card-title py-3 my-auto helvetica titulo-bold size-37">eGROUP</h4>
                             <p class="card-text text-left helvetica">
