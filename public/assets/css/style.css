@@ -164,6 +164,9 @@
   .color-transparent{
     background-color:#d7d9db00
   }
+  .color-black-trasnparent {
+    background-color: #0e0d0d5b !important;
+  }
 
  .menu-background-grey{
     height: 250px;
@@ -228,6 +231,14 @@
     font-size:30px;
     cursor:pointer
 }
+
+.invalid-feedback{
+    font-size: 16px !important;
+    background: black !important;
+    color: #d90b1f !important;
+    font-family:'helvatica' !important;
+}
+
   @media screen and (max-height: 450px) {
     .overlay {overflow-y: auto;}
     .overlay a {font-size: 20px}
