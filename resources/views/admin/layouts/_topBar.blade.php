@@ -58,7 +58,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">{{auth()->user()->getPendingFriendships()->count()}}+</span>
+                                {{-- <span class="badge badge-danger badge-counter">{{auth()->user()->getPendingFriendships()->count()}}+</span> --}}
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -67,7 +67,7 @@
                                      Centro de Alertas
                                 </h6>
 
-                                @foreach (auth()->user()->getPendingFriendships() as $friend )
+                                {{-- @foreach (auth()->user()->getPendingFriendships() as $friend )
                                 <a class="dropdown-item d-flex align-items-center" href="{{route('usuarios.show',$friend->sender->id)}}">
                                     <div class="mr-3">
                                         <div class="icon-circle bg-primary">
@@ -79,7 +79,7 @@
                                         <span class="font-weight-bold">una nueva solicitud de amistad de {{$friend->sender->name}} {{$friend->sender->last_name}}</span>
                                     </div>
                                 </a>
-                                @endforeach
+                                @endforeach --}}
 
 
                                 {{-- <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a> --}}
@@ -130,7 +130,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{route('usuarios.show',auth()->user()->id)}}">
+                                {{-- <a class="dropdown-item" href="{{route('usuarios.show',auth()->user()->id)}}"> --}}
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     perfil
                                 </a>

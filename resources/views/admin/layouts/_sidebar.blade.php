@@ -46,10 +46,10 @@
             @if (@Auth::user()->hasRole('Manager'))
             <a class="collapse-item" href="{{route('ministerio.create')}}">Nuevo...</a>
             @endif
-            @foreach (\App\Ministery::all() as $ministery)
+            {{-- @foreach (\App\Ministery::all() as $ministery)
                 <a class="collapse-item" href="{{route('ministerio.show',$ministery->id)}}">{{$ministery->name}}</a>
 
-            @endforeach
+            @endforeach --}}
         </div>
     </div>
 </li>
@@ -63,29 +63,29 @@
     <div id="collapseMeeting" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Reuniones</h6>
-            <a class="collapse-item" href="{{route('reuniones.index')}}">Precenciales</a>
-            <a class="collapse-item" href="{{route('youtube.index')}}">YouTube</a>
+            <a class="collapse-item" href="#">Precenciales</a>
+            <a class="collapse-item" href="#">YouTube</a>
         </div>
     </div>
 </li>
 <hr class="sidebar-divider">
 <li class="nav-item">
-    <a class="nav-link" href="{{route('celulas.index')}}">
+    <a class="nav-link" href="#">
         <i class="fas  fa-map-marker "></i>
         <span>Celulas</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{route('oraciones.index')}}">
+    <a class="nav-link" href="#">
         <i class="fas fa-pray "></i>
         <span>Oraciones</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{route('devocional.index')}}">
+    <a class="nav-link" href="#">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Devocionales</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{route('usuarios.index')}}">
+    <a class="nav-link" href="#">
         <i class="fas fa-fw fa-user"></i>
         <span>Usuarios</span></a>
 </li>

@@ -12,17 +12,15 @@
     <title>{{ config('app.name', 'Comunife Manizales') }}</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{asset('assets/assets/stylesAdm/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/stylesAdm/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link rel=stylesheet href="{{asset("vendors/bootstrap-datepicker/css/datepicker.css")}}">
+    <link rel=stylesheet href="{{asset("assets/libraries/bootstrap-datepicker/css/datepicker.css")}}">
     <!-- Custom styles for this template-->
     <link href="{{asset('assets/stylesAdm/css/sb-admin-2.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/chat/css/chat.css')}}" rel="stylesheet">
-    <link href="{{asset('vendors/imagePicker/image-picker/image-picker.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('assets/assets/stylesAdm/css/emojionearea.min.css')}}">
+    <link href="{{asset('assets/libraries/imagePicker/image-picker/image-picker.css')}}" rel="stylesheet">
     <link href="{{asset("assets/libraries/bootstrap-select/bootstrap-select.min.css")}}" rel="stylesheet">
-    <link href="{{asset('css/splide-min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/splide-core.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/splide-min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/splide-core.min.css')}}" rel="stylesheet">
 
     <link type="text/css" rel="preload" href="{{asset('assets/libraries/sweetalert2/sweetalert2.min.css')}}" as="style" onload="this.rel='stylesheet'" />
     <link href="{{asset("assets/libraries/bootstrap-fileinput/css/fileinput.min.css")}}" rel="stylesheet">
@@ -49,34 +47,12 @@
                             @include('admin.layouts._topBar')
                             <!-- Begin Page Content -->
                             <div class="col-12 p-0 m-0 pt-5 mt-5 pl-2 ml-2">
-
-                                <div id="cameraHome" class="row d-none justify-content-center m-3 col-12 p-0 m-0">
-                                    <div class="col-11">
-                                        <select id="optionQr" onchange="changeQr()" class="form-control" id=""></select>
-                                    </div>
-                                    <div class="col-4 p-0">
-                                        <video id="previewHome" style="height:300px;width:300px"> </video>
-                                    </div>
-                                    <div class="col-12 p-0 m-0 row justify-content-center">
-                                        <a class=" btn btn-dark text-white" onclick="closeCameraQR()">Cerrar </a>
-                                    </div>
-                                </div>
-                                <div id="cameraBarCode" class="d-none">
-                                    <div id="modal" title="Escáner de código de barras">
-                                        <span class="found"></span>
-                                        <div id="interactive" class="viewport"></div>
-                                    </div>
-                                    <a id="stop" href="#" class="btn btn-dark d-none">Cerrar camara</a>
-                                </div>
                                 @yield('content')
                             </div>
                             <!-- /.container-fluid -->
                         </div>
                     <!-- lista de aliados -->
-                    <div class="col-1 pl-3 pt-5 p-0 m-0">
-                        @include('admin.messages.partials.listAllice')
-                    </div>
-                    @include('admin.messages.layouts.chatFloat')
+
                 </div>
             </div>
             <!-- End of Main Content -->
@@ -132,43 +108,25 @@
     <!-- Page level plugins -->
     <script src="{{asset('assets/stylesAdm/vendor/chart.js/Chart.min.js')}}"></script>
     <!-- Page level custom scripts -->
-    <script src="{{asset('js/splide.min.js')}}"></script>
+    <script src="{{asset('assets/js/splide.min.js')}}"></script>
     <script type="text/javascript" src="{{asset("assets/libraries/sweetalert2/sweetalert2.min.js")}}"></script>
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"> </script>
-    <script type="text/javascript" src="{{asset("assets/libraries/serratus-quaggaJS-862df88/dist/quagga.min.js")}}">
-    </script>
-    <script type="text/javascript" src="{{asset("assets/libraries/cameras.js")}}"></script>
 
-    <script src="{{asset('stylesAdm/js/demo/chart-area-demo.js')}}"></script>
-    <script src="{{asset('/vendors/ckeditor/ckeditor.js') }}"></script>
-    <script src="{{asset("vendors/moment/moment.min.js")}}"></script>
-    <script src="{{asset("vendors/fullCalendar/fullcalendar.min.js")}}"></script>
-    <script src="{{asset("vendors/bootstrap-datepicker/js/bootstrap-datepicker.js")}}"></script>
-    <script src="{{asset("vendors/imagePicker/image-picker/image-picker.min.js")}}"></script>
+
+    <script src="{{asset('assets/stylesAdm/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('assets/libraries/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{asset("assets/libraries/moment/moment.min.js")}}"></script>
+    <script src="{{asset("assets/libraries/fullCalendar/fullcalendar.min.js")}}"></script>
+    <script src="{{asset("assets/libraries/bootstrap-datepicker/js/bootstrap-datepicker.js")}}"></script>
+    <script src="{{asset("assets/libraries/imagePicker/image-picker/image-picker.min.js")}}"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
-    <script type="text/javascript" src="{{asset("js/firebase.min.js")}}"></script>
-    <script type="text/javascript" src="{{asset("js/keyFirebase.js")}}"></script>
-    <script data-cfasync="false" async src="{{asset('js/emojionearea.min.js')}}"></script>
-    <script src="{{asset('assets/chat/js/chat.js')}}?v={{date('ynjgi')}}"></script>
+
     <script src="{{ asset('assets/libraries/bootstrap-fileinput/js/fileinput.min.js') }}"></script>
     <script type="text/javascript" src="{{asset("assets/libraries/bootstrap-select/bootstrap-select.min.js")}}"></script>
 
-    <script>
-        var __baseUrl = "{{url('/')}}";
-        var __readMessageUrl = "{{route('ajax::message.readed')}}";
-        var __sendMessageUrl = "{{route('ajax::message.new')}}";
-        var __deleteMessageUrl = "{{route('ajax::message.delete')}}";
-        var __fileMessageUrl = "{{route('ajax::message.file')}}";
-        var _urlMesaggeLast="{{route('ajax::message.last')}}";
-        var _urlredaFrbs="{{route('ajax::message.readFrbs')}}";
-    </script>
-    <script type="text/javascript">
-            online({{auth()->user()->id}});
-            readChat({{auth()->user()->id}});
-            setInterval(() => {
-            online({{auth()->user()->id}},'badge-warning');
-            }, 30000);
-    </script>
+    <script src="{{asset('assets/stylesAdm/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('assets/stylesAdm/js/demo/chart-pie-demo.js')}}"></script>
+
     <!-- scripts Chart-->
     @yield('scriptsChart')
     <!-- scripts -->
