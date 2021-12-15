@@ -2,20 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+use App\Models\Cateogrie;
 use Illuminate\Http\Request;
-use App\Http\Controllers\ApiController;
-use App\Modulos\Blog\Interfaces\BlogInterface;
 
-class BlogController extends ApiController
+class CateogrieController extends Controller
 {
-
-    protected $blogInterface;
-
-    public function __construct(BlogInterface $blogInterface)
-    {
-        $this->blogInterface = $blogInterface;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -23,11 +14,7 @@ class BlogController extends ApiController
      */
     public function index()
     {
-        $datos =$this->blogInterface->index();
-
-        return  $datos['success']
-        ? $this->successResponse([ 'data' =>$datos['data']], $datos['code'])
-        : $this->errorResponse($datos['data']['message'], $datos['code']);
+        //
     }
 
     /**
@@ -37,7 +24,7 @@ class BlogController extends ApiController
      */
     public function create()
     {
-        return view('blog.create');
+        //
     }
 
     /**
@@ -54,10 +41,10 @@ class BlogController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Cateogrie  $cateogrie
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Cateogrie $cateogrie)
     {
         //
     }
@@ -65,10 +52,10 @@ class BlogController extends ApiController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Cateogrie  $cateogrie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit(Cateogrie $cateogrie)
     {
         //
     }
@@ -77,10 +64,10 @@ class BlogController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Cateogrie  $cateogrie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, Cateogrie $cateogrie)
     {
         //
     }
@@ -88,10 +75,10 @@ class BlogController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Cateogrie  $cateogrie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(Cateogrie $cateogrie)
     {
         //
     }
