@@ -14,7 +14,7 @@ class CategorieSeeder extends Seeder
      */
     public function run()
     {
-        $data = DB::table('cateogries');
+        $data = DB::table('catogories');
         $data->insert([
             'description' => 'Fe',
             'state' => true,

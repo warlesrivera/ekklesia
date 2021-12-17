@@ -48,7 +48,10 @@ class BlogController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        $datos =$this->blogInterface->store($request);
+        return  $datos['success']
+        ? $this->successResponse([ 'data' =>$datos['data']], $datos['code'])
+        : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
 
     /**
