@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Modulos\Blog\Decorador;
+namespace App\Modulos\Blog\Decoradores;
 
 use App\Models\Blog;
 use App\Modulos\Blog\Interfaces\BlogInterface;
 use App\Modulos\Blog\Repositorio\BlogRepositorio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BlogDecorator implements BlogInterface
 {
@@ -16,15 +17,13 @@ class BlogDecorator implements BlogInterface
     {
         $this->datosRepositorio = $datosRepositorio;
     }
-    public function index(){
+    public function list(){
         try {
-            $blogs  = $this->datosRepositorio->index();
 
-            return  [
-                'success' => true,
-                'code' => 200,
-                'datos' => ['blogs' => $blogs]
-            ];
+            $blogs  = $this->datosRepositorio->index();
+            return   $blogs;
+
+
         } catch (\Exception $e) {
             Log::error($e->getMessage() . ' Line: ' . $e->getLine() . ' File: ' . $e->getFile());
             return  [
@@ -60,8 +59,27 @@ class BlogDecorator implements BlogInterface
     public function show(Blog $blog){
 
     }
-    public function update(Request $request, Blog $blog){
 
+    public function update(Request $request, Blog $blog){
+        try {
+            $blog=$this->datosRepositorio->update($request,$blog);
+            if(!$blog)
+            throw new \Exception('no se pudo actualizar el blog intentalo de nuevo.');
+
+            return  [
+                'success' => true,
+                'code' => 200,
+                "data"=>['message' => 'Datos Actualizados']
+            ];
+
+        } catch (\Exception $e) {
+            Log::error($e->getMessage() . ' Line: ' . $e->getLine() . ' File: ' . $e->getFile());
+            return  [
+                'success' => false,
+                'code' => 500,
+                "data"=>['message' => $e->getMessage()]
+            ];
+        }
     }
     public function destroy(Blog $blog){
 

@@ -23,3 +23,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/blog',BlogController::class);
+Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');

@@ -25,6 +25,8 @@
     <link type="text/css" rel="preload" href="{{asset('assets/libraries/sweetalert2/sweetalert2.min.css')}}" as="style" onload="this.rel='stylesheet'" />
     <link href="{{asset("assets/libraries/bootstrap-fileinput/css/fileinput.min.css")}}" rel="stylesheet">
     <link href="{{asset("assets/libraries/bootstrap-tagsinput-latest/src/bootstrap-tagsinput.css")}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     @yield('style')
 
@@ -126,15 +128,7 @@
 
     <script src="{{asset('assets/stylesAdm/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets/stylesAdm/js/demo/chart-pie-demo.js')}}"></script>
-
-    <!-- scripts Chart-->
-    @yield('scriptsChart')
-    <!-- scripts -->
-    @yield('scripts')
-    <!-- scripts Tables -->
-    @yield('scriptsTable')
-    <!-- scripts maps -->
-    @yield('scriptsMap')
+    @stack('scripts')
 
 </body>
 

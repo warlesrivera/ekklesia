@@ -3,10 +3,10 @@
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('welcome')}}">
-    <div class="sidebar-brand-icon rotate-n-15">
-        <img src="{{asset('assets/icon/logo-white.png')}}" width="80%" alt="">
+    <div class="sidebar-brand-icon">
+        <img src="{{asset('assets/images/logo.png')}}" width="50%" alt="">
     </div>
-    <div class="sidebar-brand-text mx-3">Comunife <sup>A</sup><sup>P</sup><sup>P</sup></div>
+    <div class="sidebar-brand-text mx-3">Ekklesia</div>
 </a>
 
 <!-- Divider -->
@@ -38,11 +38,11 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMinistery"
         aria-expanded="true" aria-controls="collapseMinistery">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Minsterios</span>
+        <span>E-TEAM</span>
     </a>
     <div id="collapseMinistery" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Ministerios</h6>
+            <h6 class="collapse-header">Grupos</h6>
             @if (@Auth::user()->hasRole('Manager'))
             <a class="collapse-item" href="{{route('ministerio.create')}}">Nuevo...</a>
             @endif
@@ -72,17 +72,17 @@
 <li class="nav-item">
     <a class="nav-link" href="#">
         <i class="fas  fa-map-marker "></i>
-        <span>Celulas</span></a>
+        <span>E-GROUPS</span></a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">
         <i class="fas fa-pray "></i>
-        <span>Oraciones</span></a>
+        <span>PRAY</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{{route('blog.index')}}">
         <i class="fas fa-fw fa-chart-area"></i>
-        <span>Devocionales</span></a>
+        <span>Blogs</span></a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">

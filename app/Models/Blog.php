@@ -12,4 +12,14 @@ class Blog extends Model
     protected $fillable = [
         'title','description','images','date','state','user_id','count'
     ];
+
+    public function user()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
+    }
+
+    public function getNameStateAttribute(){
+        return $this->state==1?'Activo':"Inactivo";
+    }
+
 }
