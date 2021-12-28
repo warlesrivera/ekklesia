@@ -64,7 +64,7 @@ class BlogDecorator implements BlogInterface
         try {
             $blog=$this->datosRepositorio->update($request,$blog);
             if(!$blog)
-            throw new \Exception('no se pudo actualizar el blog intentalo de nuevo.');
+                throw new \Exception('no se pudo actualizar el blog intentalo de nuevo.');
 
             return  [
                 'success' => true,

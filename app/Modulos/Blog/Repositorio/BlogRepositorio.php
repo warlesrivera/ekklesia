@@ -5,7 +5,6 @@ namespace App\Modulos\Blog\Repositorio;
 use App\Models\Blog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
-use App\Models\Attachment;
 class BlogRepositorio
 {
     public function index()
@@ -41,7 +40,7 @@ class BlogRepositorio
         $blog->count        = 0;
 
         if ($request->file('images'))
-         $blog->images = $this->images($request);
+         $blog->images =json_encode( saveImages($request,'blog'));
 
         if ($blog->save())
             return $blog;
@@ -51,24 +50,35 @@ class BlogRepositorio
     }
     public function update($request, Blog $blog)
     {
-        $blog->fill($request->all());
-        $blog->images =$this->images($request);
+        $dataImages=[];
+        $newDataImages=[];
+        $blog->images= json_decode($blog->images);
+        if (array_key_exists("MoreimgGaleryPre",$request->all())  && !empty($blog->images)){
+
+            $dataImages= deleteImages(json_decode($request->MoreimgGaleryPre),'blog',$blog->images);
+            if(blank($blog->images))
+                $blog->images= array_merge($blog->images,$dataImages);
+            else
+            $blog->images=$dataImages;
+        }
+
+        if(array_key_exists("images",$request->all())){
+
+            $newDataImages=saveImages('blog',$request);
+            if(filled($blog->images))
+                $blog->images= array_merge($blog->images,$newDataImages);
+            else
+                $blog->images=$newDataImages;
+
+        }
+        $blog->fill($request->except('images'));
+        $blog->images=json_encode($blog->images);
 
         return $blog->save();
     }
     public function destroy(Blog $blog)
     {
-    }
-
-    protected function images($request){
-        if ($request->file('images')) {
-            //save image
-            $imagenArray = array();
-            foreach ($request->file('images') as $key => $img_tmp) {
-                array_push($imagenArray, Attachment::image($img_tmp, 'img'));
-            }
-            return json_encode($imagenArray);
-        }
-        return null;
+        deleteImages($blog->imgGaleryDelete,'blog',json_decode($blog->images));
+        return  $blog->delete();
     }
 }

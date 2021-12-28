@@ -1,5 +1,5 @@
 <div class="col-12 col-md-12 pt-1 row">
-    <input type="hidden" name="MoreimgGaleryPre" value="{{json_decode($images)}}">
+    <input type="hidden" name="MoreimgGaleryPre" value="{{json_encode($images)}}">
 
     @foreach($images as $imgGalery)
 
@@ -10,7 +10,7 @@
                 style="position: absolute;right: 0">
                 <i class="ico-circulo fa fa-trash " title="Eliminar"></i>
             </a>
-            <img src="{{asset('storage'.$route.$imgGalery)}}" width="50%">
+            <img src="{{$route.'/'. $imgGalery}}" width="50%">
         </div>
         <div class="space"></div>
     </div>
@@ -18,16 +18,4 @@
 </div>
 
 
-@push('scripts')
-<script>
-    function rmIMG(element) {
-        alert();
-        element.remove();
-        var imgs = [];
-        for (var i = $('.galery-item').length - 1; i >= 0; i--) {
-            imgs.push($($('.galery-item')[i]).data('img'));
-        }
-        $('[name="MoreimgGaleryPre"]').val(JSON.stringify(imgs));
-        }
-</script>
-@endpush
+

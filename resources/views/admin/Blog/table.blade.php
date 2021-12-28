@@ -70,8 +70,48 @@
     function deleteTable(){
         $("#tableBlog").DataTable().destroy();
     }
+    function show(id){
+        alert(id)
+        location.href='{{url('blog')}}/'+id;
+    }
+    function deleteElement(id){
+        swal.fire({
+              type: 'warning',
+              title: '¡Atención!',
+              html:'¿Desea eliminar este blog?',
 
-    function deleteBlog(data){}
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Si',
+              cancelButtonText:'No',
+            }).then(function (result) {
+                if (result.value) {
+                    var url = "{{url('blog')}}/"+id;
+                    var data ={"id":id};
+                $.ajax({
+                    url: url,
+                    type: "DELETE",
+                    headers: {
+                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    data:data,
+                    processData: false,  // tell jQuery not to process the data
+                    contentType: false,   // tell jQuery not to set contentType
+                    success: function(data)   // tell jQuery not to set contentType
+                  {
+                        swal.fire({
+                              type: 'success',
+                              title: '¡Atención!',
+                              html:'Datos actualizados',
+                         });
+                        deleteTable();
+                        initTable();
+                  }
+                });
+                }
+            });
+    }
 
 </script>
 @endpush

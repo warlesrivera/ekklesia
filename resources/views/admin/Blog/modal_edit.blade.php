@@ -42,8 +42,8 @@
                     $("#title_edit").val(obj.data.title);
                     CKEDITOR.instances['description_edit'].setData(obj.data.description)
                     $("#new-blog-edit").modal('show');
-                    if(obj.data.sectionImages!= undefined)
-                    $("#sectionImages").html(obj.data.sectionImages)
+                    if(obj.data.elementImage!= undefined)
+                    $("#sectionImages").html(obj.data.elementImage)
 
                 },
                 error: function() {
@@ -78,6 +78,7 @@
                     deleteTable();
                     initTable();
                     $("#new-blog-edit").modal('hide');
+                    $("#create-blog-edit")[0].reset();
                 },
                 error: function() {
                     swal({
@@ -91,6 +92,16 @@
             });
 
         }
+
+        function rmIMG(element) {
+
+        element.remove();
+        var imgs = [];
+        for (var i = $('.galery-item').length - 1; i >= 0; i--) {
+            imgs.push($($('.galery-item')[i]).data('img'));
+        }
+        $('[name="MoreimgGaleryPre"]').val(JSON.stringify(imgs));
+    }
 
     </script>
 @endpush

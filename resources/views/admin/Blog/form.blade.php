@@ -7,6 +7,7 @@
     <label for="description">descripción</label>
     <textarea name="description_{{$type}}" id="description_{{$type}}" class="ckeditor" cols="30" rows="10"></textarea>
 </div>
+
 <div class="py-3">
     <input type="file" name="images[]" id="images_{{$type}}"  class="file" data-show-upload="false"
     data-show-cancel="false" data-upload-url="" data-show-preview="true  " data-browse-label="Buscar imágenes  " data-browse-class="btn btn-info text-white"

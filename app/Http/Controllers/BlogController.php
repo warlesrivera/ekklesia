@@ -64,7 +64,7 @@ class BlogController extends ApiController
      */
     public function show(Blog $blog)
     {
-        //
+        return view('blog.show',compact('blog'));
     }
 
     /**
@@ -75,12 +75,17 @@ class BlogController extends ApiController
      */
     public function edit(Blog $blog)
     {
-        $blog->elementImage=null;
+
         if(filled($blog->images)){
             $images =json_decode($blog->images);
-            $route = asset('img').'/'. Auth::id();
-            $blog->elementImage = view()->make('admin.components.images_element',compact('images','route'));
+            $route = asset('storage/img/blog').'/'. Auth::id();
+            $blog->elementImage .=view()
+                                ->make('admin.components.images_element')
+                                ->with('images',$images)
+                                ->with('route',$route);
+
         }
+
 
        return $this->showOne($blog,200);
     }

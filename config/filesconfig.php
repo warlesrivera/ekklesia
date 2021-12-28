@@ -1,6 +1,6 @@
 <?php
 
-return ['img' => [
-    'dir' => '/img/',
-    'pu_dir' => '/img/',
+return ['blog' => [
+    'dir' => '/img/blog/',
+    'pu_dir' => '/img/blog/',
 ],];

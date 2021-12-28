@@ -13,6 +13,7 @@ class Attachment extends Model
     public const DK_PRIVATE = 'local';
     public static function image($img_tmp,$folder,$name='', $format='png',$optimize=100,$disk = Attachment::DK_PUBLIC)
     {
+
       try
       {
 
