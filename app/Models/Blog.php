@@ -10,12 +10,12 @@ class Blog extends Model
 {
     use HasFactory,SoftDeletes;
     protected $fillable = [
-        'title','description','images','date','state','user_id','count'
+        'title','description','images','date','state','user_id','count','id_hadquarter'
     ];
 
     public function user()
     {
-        return $this->hasOne('App\Models\User', 'id', 'user_id');
+        return $this->BelongsTo('App\Models\User', 'id', 'user_id');
     }
 
     public function getNameStateAttribute(){

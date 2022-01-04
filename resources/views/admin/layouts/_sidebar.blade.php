@@ -34,27 +34,9 @@
     </a>
     @endif
 </li>
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMinistery"
-        aria-expanded="true" aria-controls="collapseMinistery">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>E-TEAM</span>
-    </a>
-    <div id="collapseMinistery" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Grupos</h6>
-            @if (@Auth::user()->hasRole('Manager'))
-            <a class="collapse-item" href="{{route('ministerio.create')}}">Nuevo...</a>
-            @endif
-            {{-- @foreach (\App\Ministery::all() as $ministery)
-                <a class="collapse-item" href="{{route('ministerio.show',$ministery->id)}}">{{$ministery->name}}</a>
 
-            @endforeach --}}
-        </div>
-    </div>
-</li>
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMeeting"
         aria-expanded="true" aria-controls="collapseMeeting">
         <i class="fas fa-meetup"></i>
@@ -67,7 +49,7 @@
             <a class="collapse-item" href="#">YouTube</a>
         </div>
     </div>
-</li>
+</li> --}}
 <hr class="sidebar-divider">
 <li class="nav-item">
     <a class="nav-link" href="#">
@@ -83,6 +65,11 @@
     <a class="nav-link" href="{{route('blog.index')}}">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Blogs</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{{route('team.index')}}">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>E_TEAM</span></a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">

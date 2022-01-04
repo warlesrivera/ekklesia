@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 class BlogRepositorio
 {
-    public function index()
+    public function list()
     {
         $blog = Blog::where('state', Config::get('constants.ACTIVO'))->get();
 

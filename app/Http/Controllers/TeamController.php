@@ -4,9 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
+use App\Modulos\Team\Interfaces\TeamInterface;
 
-class TeamController extends Controller
+class TeamController extends ApiController
 {
+
+    protected $teamInterface;
+
+    public function __construct(TeamInterface $teamInterface)
+    {
+        $this->teamInterface = $teamInterface;
+    }
+
+    public function list()
+    {
+
+        $datos =$this->teamInterface->list();
+        return  $datos;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +30,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.Team.index');
+
     }
 
     /**
@@ -35,7 +52,10 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos =$this->teamInterface->store($request);
+        return  $datos['success']
+        ? $this->successResponse([ 'data' =>$datos['data']], $datos['code'])
+        : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
 
     /**

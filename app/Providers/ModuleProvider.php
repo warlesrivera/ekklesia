@@ -14,7 +14,9 @@ class ModuleProvider extends ServiceProvider
     public function register()
     {
         $modulos = [
-            'Blog'
+            'Blog',
+            'LandingPage',
+            'Team'
         ];
 
         foreach ($modulos as $module) {
