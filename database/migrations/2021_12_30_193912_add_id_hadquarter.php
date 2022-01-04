@@ -15,7 +15,7 @@ class AddIdHadquarter extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) {
             $table->unsignedBigInteger('headquarter_id');
-            $table->foreign('headquarter_id')->references('id')->on('headquartes');
+            $table->foreign('headquarter_id')->references('id')->on('headquarters');
         });
     }
 

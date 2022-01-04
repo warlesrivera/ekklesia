@@ -15,7 +15,7 @@ class AddIdHadquarterLandingPages extends Migration
     {
         Schema::table('landing_pages', function (Blueprint $table) {
             $table->unsignedBigInteger('headquarter_id')->nullable();
-            $table->foreign('headquarter_id')->references('id')->on('headquartes');
+            $table->foreign('headquarter_id')->references('id')->on('headquarters');
         });
     }
 
