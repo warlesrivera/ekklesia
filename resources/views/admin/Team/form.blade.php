@@ -18,5 +18,4 @@
     data-show-cancel="false" data-upload-url="" data-show-preview="true  " data-browse-label="Buscar imágenes  " data-browse-class="btn btn-info text-white"
     data-max-file-size="1500" data-browse-icon="<i class=fa fa-images></i>" data-remove-label="Quitar" data-el-error-container="#errors" data-remove-class="btn"
     data-language="es" accept="image/*" data-max-file-count="5" multiple>
-
 </div>

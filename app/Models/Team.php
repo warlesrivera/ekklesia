@@ -18,4 +18,8 @@ class Team extends Model
         return $this->belongsToMany(User::class,'teams_users');
     }
 
+    public function Headquarter()
+    {
+        return $this->belongsTo(Headquarter::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Modulos\Team\Repositorio;
 
 use App\Models\Team;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
 class TeamRepositorio
@@ -17,6 +18,9 @@ class TeamRepositorio
             })
             ->addColumn('date', function ($row) {
                 return $row->created_at->format('d-m-Y');
+            })
+            ->addColumn('hadquarter', function ($row) {
+                return $row->headquarter->name;
             })
             ->addColumn('count_user', function ($row) {
                 return $row->user->count();

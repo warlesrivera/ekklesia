@@ -27,7 +27,7 @@
     function save(){
         var formData = new FormData(document.getElementById("create-blog"));
             formData.append('description',CKEDITOR.instances['description_create'].getData());
-            formData.append('description_short',CKEDITOR.instances['description_short_create'].getData());
+            formData.append('description_short',document.getElementById("description_short_create").value)
         var url = "{{route('team.store')}}"
         $.ajax({
             url: url,

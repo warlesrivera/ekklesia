@@ -30,8 +30,7 @@
 
         function edit(id){
 
-
-            var url = "{{url('blog')}}/"+id+'/edit';
+            var url = "{{url('team')}}/"+id+'/edit';
                 $.ajax({
                 url: url,
                 method: 'GET',

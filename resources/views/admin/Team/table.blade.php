@@ -5,7 +5,7 @@
                 <th></th>
                 <th>Nombre</th>
                 <th>sede</th>
-                <th>NUmeros de  voluntarios</th>
+                <th>Números de voluntarios</th>
                 <th>fecha de creacion</th>
                 <th>Acción</th>
             </tr>
