@@ -77,7 +77,16 @@ class TeamController extends ApiController
      */
     public function edit(Team $team)
     {
-        //
+
+        if(filled($team->images)){
+            $images =json_decode($team->images);
+            $route = asset('storage/img/team').'/'. Auth::id();
+            $team->elementImage .=view()
+                                ->make('admin.components.images_element')
+                                ->with('images',$images)
+                                ->with('route',$route);
+        }
+        return $this->showOne($team,200);
     }
 
     /**
@@ -89,7 +98,10 @@ class TeamController extends ApiController
      */
     public function update(Request $request, Team $team)
     {
-        //
+        $datos =$this->teamInterface->update($request,$team);
+        return  $datos['success']
+        ? $this->successResponse($datos['data'], $datos['code'])
+        : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
 
     /**
@@ -100,6 +112,9 @@ class TeamController extends ApiController
      */
     public function destroy(Team $team)
     {
-        //
+        $datos =$this->teamInterface->destroy($team);
+        return  $datos['success']
+        ? $this->successResponse($datos['data'], $datos['code'])
+        : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
 }

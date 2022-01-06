@@ -29,79 +29,41 @@
     <script>
 
         function edit(id){
+                var url = "{{url('blog')}}/"+id+'/edit';
+                ajaxSend(url,'GET').then((data)=>{
 
-
-            var url = "{{url('blog')}}/"+id+'/edit';
-                $.ajax({
-                url: url,
-                method: 'GET',
-                processData: false,
-                contentType: false,
-                success: function(obj) {
                     $("#create-blog-edit #id").val(obj.data.id);
                     $("#title_edit").val(obj.data.title);
                     CKEDITOR.instances['description_edit'].setData(obj.data.description)
                     $("#new-blog-edit").modal('show');
                     if(obj.data.elementImage!= undefined)
-                    $("#sectionImages").html(obj.data.elementImage)
-
-                },
-                error: function() {
-                    swal({
-                        type:'error',
-                        title:'Ups ocurrio un error',
-                        html:'Nose ha podido procesar tu solicitud. Vuelve a intentarlo.'
-                    });
-                    $('form[name="update-user-form"] .submit').removeAttr('disabled');
-                    $('form[name="update-user-form"] .overlay').addClass('hidden');
-                }
-            });
-
+                        $("#sectionImages").html(obj.data.elementImage)
+                })
         }
 
         function update(){
-            var formData = new FormData(document.getElementById("create-blog-edit"));
-                formData.append('description',CKEDITOR.instances['description_edit'].getData());
-            var url = "{{url('blog')}}/"+$("#id").val();
-                $.ajax({
-                url: url,
-                method: 'POST',
-                processData: false,
-                contentType: false,
-                data: formData,
-                success: function(data) {
-                    swal.fire({
-                        type: 'success',
-                        title: 'Datos guardados',
-                        html: data.message
-                    });
-                    deleteTable();
-                    initTable();
+                var formData = new FormData(document.getElementById("create-blog-edit"));
+                    formData.append('description',CKEDITOR.instances['description_edit'].getData());
+                var url = "{{url('blog')}}/"+$("#id").val();
+                ajaxSend(url,'POST',formData)
+                .then((data)=>{
+                    deleteTable("tableBlog");
+                    startTable();
                     $("#new-blog-edit").modal('hide');
-                    $("#create-blog-edit")[0].reset();
-                },
-                error: function() {
-                    swal({
-                        type:'error',
-                        title:'Ups ocurrio un error',
-                        html:'Nose ha podido procesar tu solicitud. Vuelve a intentarlo.'
-                    });
-                    $('form[name="update-user-form"] .submit').removeAttr('disabled');
-                    $('form[name="update-user-form"] .overlay').addClass('hidden');
-                }
-            });
+                    $("#form-team-editt")[0].reset();
+                });
 
         }
 
         function rmIMG(element) {
 
-        element.remove();
-        var imgs = [];
-        for (var i = $('.galery-item').length - 1; i >= 0; i--) {
-            imgs.push($($('.galery-item')[i]).data('img'));
+            element.remove();
+            var imgs = [];
+            for (var i = $('.galery-item').length - 1; i >= 0; i--) {
+                imgs.push($($('.galery-item')[i]).data('img'));
+            }
+            $('[name="MoreimgGaleryPre"]').val(JSON.stringify(imgs));
         }
-        $('[name="MoreimgGaleryPre"]').val(JSON.stringify(imgs));
-    }
 
     </script>
 @endpush

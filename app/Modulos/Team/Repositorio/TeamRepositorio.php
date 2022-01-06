@@ -41,4 +41,12 @@ class TeamRepositorio
         if ($team->save())
             return $team;
     }
+
+    public function destroy(Team $team)
+    {
+        if(!empty($team->images))
+            deleteImage('team',json_decode($team->images));
+
+        return  $team->delete();
+    }
 }

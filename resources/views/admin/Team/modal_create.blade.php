@@ -1,4 +1,4 @@
-<div class="modal fade bd-example-modal-lg" id="new-blog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="new-team" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header">
@@ -8,7 +8,7 @@
         </button>
         </div>
         <div class="modal-body">
-        <form name="create-blog" id="create-blog">
+        <form name="create-team" id="create-team">
             @csrf
             @include('admin.Team.form',['type'=>'create'])
         </form>
@@ -25,36 +25,17 @@
 <script>
 
     function save(){
-        var formData = new FormData(document.getElementById("create-blog"));
+        var formData = new FormData(document.getElementById("create-team"));
             formData.append('description',CKEDITOR.instances['description_create'].getData());
             formData.append('description_short',document.getElementById("description_short_create").value)
-        var url = "{{route('team.store')}}"
-        $.ajax({
-            url: url,
-            method: 'POST',
-            processData: false,
-            contentType: false,
-            data: formData,
-            success: function(data) {
-                  swal.fire({
-                    type: 'success',
-                    title: 'Datos guardados',
-                    html: data.message
-                  });
-                  deleteTable();
-                  initTable();
-                  $("#new-blog").modal('hide');
-            },
-            error: function() {
-                swal({
-                    type:'error',
-                    title:'Ups ocurrio un error',
-                    html:'Nose ha podido procesar tu solicitud. Vuelve a intentarlo.'
-                });
-                $('form[name="update-user-form"] .submit').removeAttr('disabled');
-                $('form[name="update-user-form"] .overlay').addClass('hidden');
-            }
-        });
+        var url = "{{route('team.store')}}";
+        ajaxSend(url,'POST',formData).then((data)=>{
+            deleteTable("tableTeam");
+            startTable();
+            $("#new-team").modal('hide');
+            $("#create-team")[0].reset();
+        })
+
     }
 </script>
 @endpush

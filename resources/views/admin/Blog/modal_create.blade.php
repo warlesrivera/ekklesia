@@ -29,32 +29,12 @@
 
             console.log(CKEDITOR.instances['description_create'].getData())
         var url = "{{route('blog.store')}}"
-        $.ajax({
-            url: url,
-            method: 'POST',
-            processData: false,
-            contentType: false,
-            data: formData,
-            success: function(data) {
-                  swal.fire({
-                    type: 'success',
-                    title: 'Datos guardados',
-                    html: data.message
-                  });
-                  deleteTable();
-                  initTable();
-                  $("#new-blog").modal('hide');
-            },
-            error: function() {
-                swal({
-                    type:'error',
-                    title:'Ups ocurrio un error',
-                    html:'Nose ha podido procesar tu solicitud. Vuelve a intentarlo.'
-                });
-                $('form[name="update-user-form"] .submit').removeAttr('disabled');
-                $('form[name="update-user-form"] .overlay').addClass('hidden');
-            }
-        });
+        ajaxSend(url,'POST',formData).then((data)=>{
+            deleteTable("tableBlog");
+            startTable();
+            $("#new-team").modal('hide');
+            $("#create-team")[0].reset();
+        })
     }
 </script>
 @endpush

@@ -76,15 +76,15 @@ class BlogController extends ApiController
     public function edit(Blog $blog)
     {
 
-        if(filled($blog->images)){
-            $images =json_decode($blog->images);
-            $route = asset('storage/img/blog').'/'. Auth::id();
-            $blog->elementImage .=view()
-                                ->make('admin.components.images_element')
-                                ->with('images',$images)
-                                ->with('route',$route);
+            if(filled($blog->images)){
+                $images =json_decode($blog->images);
+                $route = asset('storage/img/team').'/'. Auth::id();
+                $blog->elementImage .=view()
+                                    ->make('admin.components.images_element')
+                                    ->with('images',$images)
+                                    ->with('route',$route);
 
-        }
+            }
 
 
        return $this->showOne($blog,200);
@@ -113,6 +113,9 @@ class BlogController extends ApiController
      */
     public function destroy(Blog $blog)
     {
-        //
+        $datos =$this->blogInterface->destroy($blog);
+        return  $datos['success']
+        ? $this->successResponse($datos['data'], $datos['code'])
+        : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
 }

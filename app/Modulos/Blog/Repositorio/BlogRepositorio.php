@@ -10,11 +10,9 @@ class BlogRepositorio
     public function list()
     {
         $blog = Blog::where('state', Config::get('constants.ACTIVO'))->get();
-
         return datatables()->of($blog)
             ->addColumn('action', function ($row) {
                 return view()->make('admin.components.button_action',compact('row'));
-
             })
             ->addColumn('date', function ($row) {
                 return $row->created_at->format('d-m-Y');
@@ -78,7 +76,10 @@ class BlogRepositorio
     }
     public function destroy(Blog $blog)
     {
-        deleteImages($blog->imgGaleryDelete,'blog',json_decode($blog->images));
+
+        if(!empty($blog->images))
+            deleteImage('blog',json_decode($blog->images));
+
         return  $blog->delete();
     }
 }

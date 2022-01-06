@@ -37,4 +37,14 @@ if(! function_exists('deleteImages')){
     }
 }
 
+if(! function_exists('deleteImage')){
+
+    function deleteImage($folder,$images){
+        foreach($images as $item){
+            return Attachment::imageDelete($item,$folder);
+        }
+    }
+}
+
+
 

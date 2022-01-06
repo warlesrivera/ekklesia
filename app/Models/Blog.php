@@ -15,7 +15,7 @@ class Blog extends Model{
     ];
 
     public function user(){
-        return $this->BelongsTo('App\Models\User', 'id', 'user_id');
+        return $this->BelongsTo('App\Models\User', 'user_id', 'id');
     }
 
     public function getNameStateAttribute(){

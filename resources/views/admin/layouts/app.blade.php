@@ -128,6 +128,8 @@
 
     <script src="{{asset('assets/stylesAdm/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets/stylesAdm/js/demo/chart-pie-demo.js')}}"></script>
+    <script src="{{asset('assets/js/helpers.js')}}"></script>
+
     @stack('scripts')
 
 </body>

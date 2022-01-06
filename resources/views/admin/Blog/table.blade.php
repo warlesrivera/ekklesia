@@ -31,19 +31,13 @@
 
 <script>
      $(function () {
-        initTable();
+        startTable();
     });
 
-    function initTable(){
-        tabla=$("#tableBlog").DataTable({
-                dom: 'Bfrtip',
-                "bLengthChange":false,
-                "responsive":true,
-                "ajax":"{{route('blog.list')}}",
-                language:{
-                    url:'{{ asset('assets/stylesAdm/vendor/datatables/spanish.json') }}'
-                  },
-                  columns: [  //or different depending on the structure of the object
+    function startTable(){
+        initTable("tableBlog",
+                  "{{route('blog.list')}}",
+                  [
                     {data:'id'},
                     {data:'title'},
                     {data:'count'},
@@ -51,27 +45,17 @@
                     {data:'user'},
                     {data:'state'},
                     {data:'action'}
-                ],
-                "order": [[ 2, "DESC" ]],
-                "pageLength": 6,
-                    "buttons": [
+                  ],
+                  [{
+                        "text": "Crear Blog",
+                        "className": 'btn btn-dark mt-3  btn-xs text-black',
+                        'action':function(e, dt, button, config ){$('#new-blog').modal('show')},
+                  }]
+                )
 
-                            {"text": "Crear Blog","className": 'btn btn-dark mt-3  btn-xs text-black',
-                            'action':function(e, dt, button, config ){
-                                        $('#new-blog').modal('show')
-                                    },
-                            },
-                    ],
-                "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-                            $(nRow).attr('id', aData.clave);
-                    }
-            });
     }
-    function deleteTable(){
-        $("#tableBlog").DataTable().destroy();
-    }
+
     function show(id){
-        alert(id)
         location.href='{{url('blog')}}/'+id;
     }
     function deleteElement(id){
@@ -88,27 +72,11 @@
             }).then(function (result) {
                 if (result.value) {
                     var url = "{{url('blog')}}/"+id;
-                    var data ={"id":id};
-                $.ajax({
-                    url: url,
-                    type: "DELETE",
-                    headers: {
-                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    data:data,
-                    processData: false,  // tell jQuery not to process the data
-                    contentType: false,   // tell jQuery not to set contentType
-                    success: function(data)   // tell jQuery not to set contentType
-                  {
-                        swal.fire({
-                              type: 'success',
-                              title: '¡Atención!',
-                              html:'Datos actualizados',
-                         });
-                        deleteTable();
-                        initTable();
-                  }
-                });
+                    deleteAjax(url,'{{ csrf_token() }}')
+                    .then(()=>{
+                        deleteTable("tableBlog");
+                        startTable();
+                    });
                 }
             });
     }

@@ -1,5 +1,5 @@
 <div class="col table-responsive">
-    <table class="table table-bordered " id="tableBlog" width="100%" cellspacing="0">
+    <table class="table table-bordered " id="tableTeam" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th></th>
@@ -30,9 +30,27 @@
 
 <script>
      $(function () {
-        initTable();
+        startTable();
     });
-
+    function startTable(){
+        initTable("tableTeam",
+        "{{route('team.list')}}",
+        [
+           {data:'id'},
+           {data:'name'},
+           {data:'hadquarter'},
+           {data:'count_user'},
+           {data:'date'},
+           {data:'action'}
+        ],
+        [{
+            "text": "Crear E-TEAM",
+            "className": 'btn btn-dark mt-3  btn-xs text-black',
+            'action':function(e, dt, button, config ){
+            $('#new-team').modal('show')
+            },
+        }])
+    }
     function limitDescription(type){
         val=document.getElementById("description_short_"+type).value;
         if(val.length >150){
@@ -45,41 +63,7 @@
         }
     }
 
-    function initTable(){
-        tabla=$("#tableBlog").DataTable({
-                dom: 'Bfrtip',
-                "bLengthChange":false,
-                "responsive":true,
-                "ajax":"{{route('team.list')}}",
-                language:{
-                    url:'{{ asset('assets/stylesAdm/vendor/datatables/spanish.json') }}'
-                  },
-                  columns: [  //or different depending on the structure of the object
-                    {data:'id'},
-                    {data:'name'},
-                    {data:'hadquarter'},
-                    {data:'count_user'},
-                    {data:'date'},
-                    {data:'action'}
-                ],
-                "order": [[ 2, "DESC" ]],
-                "pageLength": 6,
-                    "buttons": [
 
-                            {"text": "Crear E-TEAM","className": 'btn btn-dark mt-3  btn-xs text-black',
-                            'action':function(e, dt, button, config ){
-                                        $('#new-blog').modal('show')
-                                    },
-                            },
-                    ],
-                "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-                            $(nRow).attr('id', aData.clave);
-                    }
-            });
-    }
-    function deleteTable(){
-        $("#tableBlog").DataTable().destroy();
-    }
     function show(id){
 
         location.href='{{url('team')}}/'+id;
@@ -98,27 +82,11 @@
             }).then(function (result) {
                 if (result.value) {
                     var url = "{{url('team')}}/"+id;
-                    var data ={"id":id};
-                $.ajax({
-                    url: url,
-                    type: "DELETE",
-                    headers: {
-                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    data:data,
-                    processData: false,  // tell jQuery not to process the data
-                    contentType: false,   // tell jQuery not to set contentType
-                    success: function(data)   // tell jQuery not to set contentType
-                  {
-                        swal.fire({
-                              type: 'success',
-                              title: '¡Atención!',
-                              html:'Datos actualizados',
-                         });
-                        deleteTable();
-                        initTable();
-                  }
-                });
+                    deleteAjax(url,'{{ csrf_token() }}')
+                    .then(()=>{
+                        deleteTable("tableTeam");
+                        startTable();
+                    });
                 }
             });
     }

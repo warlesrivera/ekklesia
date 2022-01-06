@@ -56,5 +56,26 @@ class TeamDecorator implements TeamInterface
     }
     public function show(Team $blog){}
     public function update(Request $request, Team $blog){}
-    public function destroy(Team $blog){}
+    public function destroy(Team $team){
+        try {
+
+            if ($this->datosRepositorio->destroy($team)) {
+                return  [
+                    'success' => true,
+                    'code' => 200,
+                    "data" => ['message' => 'Datos Actualizados']
+                ];
+            } else {
+                throw new \Exception('no se pudo actualizar el blog intentalo de nuevo.');
+            }
+        } catch (\Exception $e) {
+            Log::error($e->getMessage() . ' Line: ' . $e->getLine() . ' File: ' . $e->getFile());
+            return  [
+                'success' => false,
+                'code' => 500,
+                "data" => ['message' => $e->getMessage()]
+            ];
+        }
+
+    }
 }
