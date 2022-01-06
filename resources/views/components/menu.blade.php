@@ -1,9 +1,9 @@
 <div class="d-none d-md-block">
     <nav id="menu"
         class="navbar navbar-expand-lg navbar-light color-transparent row justify-content-end m-0 col-12 px-1">
-        <a class="navbar-brand col-3 row text-center" href="#">
-            <img width="70%" id="logo-white" src="{{ asset('assets/images/ekklesiaManizales.png') }}" alt="">
-            <img width="70%" id="logo-black" class="d-none" src="{{ asset('assets/images/ekklesiaManizalesNegro.png') }}" alt="">
+        <a class="navbar-brand col-3 row text-center" href="#" style="position: absolute;top: 15px; left:2%;">
+            <img width="70%" id="logo-white"  src="{{ asset('assets/images/ekklesiaManizales.png') }}" alt="">
+            <img width="70%" id="logo-black"  class="d-none" src="{{ asset('assets/images/ekklesiaManizalesNegro.png') }}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,9 @@
                     <a class="nav-link text-white" href="#">Blog</a>
                 </li>
                 <li class="nav-item  col-2 px-0 text-center">
-                    <a class="nav-link text-white" href="#">¿Nuevo aquí?</a>
+                    <a class="nav-link text-white" href="#" data-toggle="collapse" data-target="#web" aria-expanded="false" aria-controls="web">¿Nuevo aquí?</a>
+                    @include('components.sub-menu',['nameId'=>'web'])
+
                 </li>
                 <li class="nav-item  col px-0 text-center">
                     <a class="nav-link text-white" href="#">Generosidad</a>
@@ -62,13 +64,10 @@
             <a href="#">Para ti</a>
             <a href="#">Blog</a>
             <div id="accordion">
-                    <a class="btn btn-outline-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <a class="btn btn-outline-light text-secondary" data-toggle="collapse" data-target="#responsive" aria-expanded="false" aria-controls="responsive">
                         ¿Nuevo aquí?
                     </a>
-                    <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="text-white">
-                        </div>
-                    </div>
+                    @include('components.sub-menu',['nameId'=>'responsive'])
 
               </div>
             <a href="#">Generosidad</a>

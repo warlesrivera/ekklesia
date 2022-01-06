@@ -4,7 +4,7 @@
     @include('components.menu')
     @include('components.nuestraciudad')
     @include('components.nosotros')
-    @include('components.ministery')
+    @include('components.teams')
     @include('components.blog')
     @include('components.nuevoAqui')
     @include('components.generosidad')
