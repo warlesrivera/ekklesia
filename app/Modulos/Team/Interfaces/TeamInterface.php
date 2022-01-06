@@ -3,6 +3,7 @@
 namespace App\Modulos\Team\Interfaces;
 
 use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 interface TeamInterface
@@ -12,5 +13,6 @@ interface TeamInterface
     public function show(Team $blog);
     public function update(Request $request, Team $blog);
     public function destroy(Team $blog);
+    public function teamUser(Team $blog,array $ids);
 
 }

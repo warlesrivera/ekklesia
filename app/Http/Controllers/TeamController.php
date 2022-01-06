@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
+use App\Models\User;
 use App\Modulos\Team\Interfaces\TeamInterface;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends ApiController
 {
@@ -19,7 +21,6 @@ class TeamController extends ApiController
 
     public function list()
     {
-
         $datos =$this->teamInterface->list();
         return  $datos;
     }
@@ -80,7 +81,7 @@ class TeamController extends ApiController
 
         if(filled($team->images)){
             $images =json_decode($team->images);
-            $route = asset('storage/img/team').'/'. Auth::id();
+            $route = asset('storage/img/teams').'/'. Auth::id();
             $team->elementImage .=view()
                                 ->make('admin.components.images_element')
                                 ->with('images',$images)
@@ -110,6 +111,13 @@ class TeamController extends ApiController
      * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
+    public function teamUser(Request $request,Team $team){
+
+        $datos =$this->teamInterface->teamUser($team,$request->ids);
+        return  $datos['success']
+        ? $this->successResponse($datos['data'], $datos['code'])
+        : $this->errorResponse($datos['data']['message'], $datos['code']);
+    }
     public function destroy(Team $team)
     {
         $datos =$this->teamInterface->destroy($team);
@@ -117,4 +125,6 @@ class TeamController extends ApiController
         ? $this->successResponse($datos['data'], $datos['code'])
         : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
+
+
 }

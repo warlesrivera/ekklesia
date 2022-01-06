@@ -3,6 +3,7 @@
 namespace App\Modulos\Team\Decoradores;
 
 use App\Models\Team;
+use App\Models\User;
 use App\Modulos\Team\Interfaces\TeamInterface;
 use App\Modulos\Team\Repositorio\TeamRepositorio;
 use Illuminate\Http\Request;
@@ -55,7 +56,45 @@ class TeamDecorator implements TeamInterface
         }
     }
     public function show(Team $blog){}
-    public function update(Request $request, Team $blog){}
+    public function update(Request $request, Team $blog){
+        try {
+
+            if (!$this->datosRepositorio->update($request, $blog))
+                throw new \Exception('no se pudo actualizar el blog intentalo de nuevo.');
+
+            return  [
+                'success' => true,
+                'code' => 200,
+                "data" => ['message' => 'Datos Actualizados']
+            ];
+        } catch (\Exception $e) {
+            Log::error($e->getMessage() . ' Line: ' . $e->getLine() . ' File: ' . $e->getFile());
+            return  [
+                'success' => false,
+                'code' => 500,
+                "data" => ['message' => $e->getMessage()]
+            ];
+        }
+    }
+    public function teamUser(Team $team,array $ids){
+        try {
+            if (!$this->datosRepositorio->teamUser($team,$ids))
+                throw new \Exception('no se pudo actualizar el blog intentalo de nuevo.');
+
+            return  [
+                'success' => true,
+                'code' => 200,
+                "data" => ['message' => 'Datos Actualizados']
+            ];
+        } catch (\Exception $e) {
+            Log::error($e->getMessage() . ' Line: ' . $e->getLine() . ' File: ' . $e->getFile());
+            return  [
+                'success' => false,
+                'code' => 500,
+                "data" => ['message' => $e->getMessage()]
+            ];
+        }
+    }
     public function destroy(Team $team){
         try {
 

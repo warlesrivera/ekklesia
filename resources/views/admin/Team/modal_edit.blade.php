@@ -44,16 +44,15 @@
     }
 
     function update(){
-
         var formData = new FormData(document.getElementById("form-team-edit"));
             formData.append('description',CKEDITOR.instances['description_edit'].getData());
-            formData.append('description_short',document.getElementById("description_short_create").value)
+            formData.append('description_short',document.getElementById("description_short_edit").value)
         var url     = "{{url('team')}}/"+$("#id").val();
         ajaxSend(url,'POST',formData).then((data)=>{
             deleteTable("tableTeam");
             startTable();
             $("#new-blog-edit").modal('hide');
-            $("#form-team-editt")[0].reset();
+            $("#form-team-edit")[0].reset();
         });
     }
 

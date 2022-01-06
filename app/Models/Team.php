@@ -13,9 +13,9 @@ class Team extends Model
         'name','description','description_short','images'
     ];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsToMany(User::class,'teams_users');
+        return $this->belongsToMany(User::class,'teams_users','team_id','user_id');
     }
 
     public function Headquarter()

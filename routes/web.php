@@ -29,4 +29,5 @@ Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 
 Route::resource('/team',TeamController::class);
 Route::get('/team-list',[TeamController::class,'list'])->name('team.list');
+Route::post('/team/users/{team?}',[TeamController::class,'teamUser'])->name('team.relationUser');
 

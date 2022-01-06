@@ -5,8 +5,8 @@ return [
         'dir' => '/img/blog/',
         'pu_dir' => '/img/blog/',
     ],
-    'team' => [
-        'dir' => '/img/team/',
-        'pu_dir' => '/img/team/',
+    'teams' => [
+        'dir' => '/img/teams/',
+        'pu_dir' => '/img/teams/',
     ],
 ];
