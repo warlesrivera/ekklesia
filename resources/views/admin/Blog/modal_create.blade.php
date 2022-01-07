@@ -11,6 +11,7 @@
         <form name="create-blog" id="create-blog">
             @csrf
             @include('admin.Blog.form',['type'=>'create'])
+
         </form>
         </div>
         <div class="modal-footer">

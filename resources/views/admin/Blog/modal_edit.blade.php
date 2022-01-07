@@ -31,11 +31,13 @@
         function edit(id){
                 var url = "{{url('blog')}}/"+id+'/edit';
                 ajaxSend(url,'GET').then((data)=>{
-
+                    obj=data.data;
                     $("#create-blog-edit #id").val(obj.data.id);
                     $("#title_edit").val(obj.data.title);
                     CKEDITOR.instances['description_edit'].setData(obj.data.description)
                     $("#new-blog-edit").modal('show');
+                    if(obj.data.state==1)
+                        document.getElementById("state_edit").checked = true;
                     if(obj.data.elementImage!= undefined)
                         $("#sectionImages").html(obj.data.elementImage)
                 })

@@ -15,3 +15,12 @@
     data-language="es" accept="image/*" data-max-file-count="5" multiple>
 
 </div>
+
+@if(filled(auth()->user()->roles()->first()) && auth()->user()->roles()->first()->id == 1)
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="1" id="state_{{$type}}" name="state">
+    <label class="form-check-label" for="state" >
+    Actividar Blog (esta listo para el publico)
+    </label>
+</div>
+@endif

@@ -33,7 +33,7 @@ class BlogRepositorio
         $blog->title        = $request->title;
         $blog->description  = $request->description;
         $blog->images       = $images;
-        $blog->state        = Config::get('constants.ACTIVO');
+        $blog->state        = filled($request->state)?$request->state:Config::get('constants.ESTADO_INACTIVO');
         $blog->user_id      = Auth::id();
         $blog->count        = 0;
 
