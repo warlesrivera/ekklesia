@@ -18,6 +18,11 @@ class LandingPageController extends ApiController
     }
 
 
+    public function index(){
+        return view('/home');
+    }
+
+
 
 
 
