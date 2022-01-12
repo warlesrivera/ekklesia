@@ -3,7 +3,7 @@
         @if(isset($blog))
             <div class="col-12 p-0">
                 <h1 class="titulo d-none d-md-block size-97 text-dark">
-                    {{isset($blog)?$blog->title:}}
+                    {{$blog->title}}
                 </h1>
 
                 <h1 class="titulo d-block d-md-none size-37 text-dark">
