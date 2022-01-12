@@ -1,5 +1,5 @@
 <div class="d-none d-md-block">
-    <nav id="menu" class="navbar navbar-expand-lg navbar-light color-transparent row justify-content-end m-0 col-12 px-1" style=" {{filled($ubication)?'background-color:#0e0e0e73' :''}}">
+    <nav id="menu" class="navbar navbar-expand-lg navbar-light color-transparent row justify-content-end m-0 col-12 px-1" style=" {{isset($ubication)?'background-color:#0e0e0e73' :''}}">
         <a class="navbar-brand col-3 row text-center" href="#" style="position: absolute;top: 15px; left:2%;">
             <img width="70%" id="logo-white"  src="{{ asset('assets/images/ekklesiaManizales.png') }}" alt="">
             <img width="70%" id="logo-black"  class="d-none" src="{{ asset('assets/images/ekklesiaManizalesNegro.png') }}" alt="">
