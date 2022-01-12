@@ -3,8 +3,11 @@
 namespace App\Modulos\Blog\Repositorio;
 
 use App\Models\Blog;
+use App\Modulos\User\Repositorio\UsersRepositorio;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use stdClass;
 class BlogRepositorio
 {
     public function list()
@@ -81,5 +84,28 @@ class BlogRepositorio
             deleteImage('blog',json_decode($blog->images));
 
         return  $blog->delete();
+    }
+
+    public function comment( $request, $blog){
+        $user_id=null;
+        if(Auth::id()){
+            $user_id=Auth::id();
+        }else{
+            $user_id=User::where('email',$request->email)->first()->id;
+            if(blank($user_id)){
+                $user= new UsersRepositorio();
+                $data = new stdClass;
+                $data->name=$request->name;
+                $data->email=$request->email;
+                $data->headquarter_id=$blog->headquarter_id;
+                $user=$user->register($data);
+                $user_id=$user->id;
+            }
+        }
+        return $blog->comment()->create([
+            "message"=> $request->comment,
+            "user_id"=>$user_id,
+            "date" =>Carbon::now()
+        ]);
     }
 }

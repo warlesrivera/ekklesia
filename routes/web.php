@@ -26,6 +26,7 @@ Route::get('/ciudad/{name?}',[ DataController::class,'index'])->name('welcome');
 Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::resource('/blog',BlogController::class);
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
+Route::post('/blog/comment/{blog?}',[BlogController::class,'comment'])->name('blog.comment');
 
 Route::resource('/team',TeamController::class);
 Route::get('/team-list',[TeamController::class,'list'])->name('team.list');

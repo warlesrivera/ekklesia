@@ -8,17 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['commentable_id','commentable_type','message','user_id'];
+    public  $timestamps = false;
+    protected $fillable = ['commentable_id','commentable_type','message','user_id','date'];
+    protected $casts = [
+        'date' => 'datetime',
+    ];
 
     public function commentable()
     {
         return $this->morphTo();
     }
 
-    public function userAll()
+    public function user()
     {
-        return $this->hasOne('App\User','id','user_id');
+        return $this->hasOne('App\Models\User','id','user_id');
     }
 
 

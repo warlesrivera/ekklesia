@@ -1,6 +1,5 @@
 <div class="d-none d-md-block">
-    <nav id="menu"
-        class="navbar navbar-expand-lg navbar-light color-transparent row justify-content-end m-0 col-12 px-1">
+    <nav id="menu" class="navbar navbar-expand-lg navbar-light color-transparent row justify-content-end m-0 col-12 px-1" style=" {{filled($ubication)?'background-color:#0e0e0e73' :''}}">
         <a class="navbar-brand col-3 row text-center" href="#" style="position: absolute;top: 15px; left:2%;">
             <img width="70%" id="logo-white"  src="{{ asset('assets/images/ekklesiaManizales.png') }}" alt="">
             <img width="70%" id="logo-black"  class="d-none" src="{{ asset('assets/images/ekklesiaManizalesNegro.png') }}" alt="">
@@ -12,32 +11,44 @@
 
         <div class="collapse navbar-collapse px-0 col-9" id="navbarSupportedContent">
             <ul id="items-menu" class="navbar-nav ml-auto px-0 col-12 text-white">
-                <li class="nav-item col px-0 text-center">
-                    <a class="nav-link text-white" href="#">Home</a>
-                </li>
-                <li class="nav-item  col px-0 text-center">
-                    <a class="nav-link text-white" href="#">Nosotros</a>
-                </li>
-                <li class="nav-item  col px-0 text-center">
-                    <a class="nav-link text-white" href="#">Experiencia</a>
-                </li>
-                <li class="nav-item  col px-0 text-center">
-                    <a class="nav-link text-white" href="#">Para ti</a>
-                </li>
-                <li class="nav-item  col-1 px-0 text-center">
-                    <a class="nav-link text-white" href="#">Blog</a>
-                </li>
-                <li class="nav-item  col-2 px-0 text-center">
-                    <a class="nav-link text-white" href="#" data-toggle="collapse" data-target="#web" aria-expanded="false" aria-controls="web">¿Nuevo aquí?</a>
-                    @include('components.sub-menu',['nameId'=>'web'])
+                @auth
+                    <li class="nav-item col px-0 text-center">
+                        <a class="nav-link text-white" href="{{route('home')}}">DASHBOARD</a>
+                    </li>
+                    <li class="nav-item  col px-0 text-center">
+                        <a class="nav-link text-white" href="#"><small>BLOG</small> </a>
+                    </li>
+                    <li class="nav-item  col px-0 text-center">
+                        <a class="nav-link text-white" href="#"><small>E-GROUP</small> </a>
+                    </li>
+                @else
+                    <li class="nav-item col px-0 text-center">
+                        <a class="nav-link text-white" href="#">Home</a>
+                    </li>
+                    <li class="nav-item  col px-0 text-center">
+                        <a class="nav-link text-white" href="#">Nosotros</a>
+                    </li>
+                    <li class="nav-item  col px-0 text-center">
+                        <a class="nav-link text-white" href="#">Experiencia</a>
+                    </li>
+                    <li class="nav-item  col px-0 text-center">
+                        <a class="nav-link text-white" href="#">Para ti</a>
+                    </li>
+                    <li class="nav-item  col-1 px-0 text-center">
+                        <a class="nav-link text-white" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item  col-2 px-0 text-center">
+                        <a class="nav-link text-white" href="#" data-toggle="collapse" data-target="#web" aria-expanded="false" aria-controls="web">¿Nuevo aquí?</a>
+                        @include('components.sub-menu',['nameId'=>'web'])
 
-                </li>
-                <li class="nav-item  col px-0 text-center">
-                    <a class="nav-link text-white" href="#">Generosidad</a>
-                </li>
-                <li class="nav-item  col px-0 text-center">
-                    <a class="nav-link text-white" href="#">Contacto</a>
-                </li>
+                    </li>
+                    <li class="nav-item  col px-0 text-center">
+                        <a class="nav-link text-white" href="#">Generosidad</a>
+                    </li>
+                    <li class="nav-item  col px-0 text-center">
+                        <a class="nav-link text-white" href="#">Contacto</a>
+                    </li>
+                @endauth
                 <li class="nav-item   col px-0 text-center">
                     <a class="nav-link" onclick="openMenu()">
                         <i id="menu-bars" class="fa fa-bars text-white" aria-hidden="true"></i>

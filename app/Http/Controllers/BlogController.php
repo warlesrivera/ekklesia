@@ -64,8 +64,10 @@ class BlogController extends ApiController
      */
     public function show(Blog $blog)
     {
+        $blog =$this->blogInterface->addCount($blog);
         return view('blog.show',compact('blog'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -114,6 +116,14 @@ class BlogController extends ApiController
     public function destroy(Blog $blog)
     {
         $datos =$this->blogInterface->destroy($blog);
+        return  $datos['success']
+        ? $this->successResponse($datos['data'], $datos['code'])
+        : $this->errorResponse($datos['data']['message'], $datos['code']);
+    }
+
+    public function comment(Request $request,Blog $blog)
+    {
+        $datos =$this->blogInterface->comment($request,$blog);
         return  $datos['success']
         ? $this->successResponse($datos['data'], $datos['code'])
         : $this->errorResponse($datos['data']['message'], $datos['code']);

@@ -22,4 +22,10 @@ class Blog extends Model{
         return $this->state==1?'Activo':"Inactivo";
     }
 
+    public function comment(){
+        return $this->morphMany('App\Models\Comment', 'commentable');
+    }
+
+
+
 }

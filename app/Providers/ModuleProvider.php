@@ -16,7 +16,8 @@ class ModuleProvider extends ServiceProvider
         $modulos = [
             'Blog',
             'LandingPage',
-            'Team'
+            'Team',
+            'Comment'
         ];
 
         foreach ($modulos as $module) {
