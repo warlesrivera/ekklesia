@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('/ciudad/{name?}',[ DataController::class,'index'])->name('welcome');
 Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::resource('/blog',BlogController::class);
+Route::get('blog/{blog}-{slug}',[BLogCOntroller::class,'show'])->name('blog.show.slug');
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::post('/blog/comment/{blog?}',[BlogController::class,'comment'])->name('blog.comment');
 Route::get('/landing',[LandingPageController::class,'index'])->name('landing.index');

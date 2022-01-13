@@ -21,8 +21,8 @@
                 @endif
             </div>
             @if(isset($landing))
-                <p class="col-4 border-bottom border-dark row ml-2 justify-content-end p-0">
-                    <a href="{{route('blog.show',$blog->id)}}">
+                <p style="height: 26px" class="col-4 border-bottom border-dark row ml-2 justify-content-end p-0">
+                    <a style="text-decoration: none" class="text-dark"  href="{{route('blog.show.slug',['blog'=>$blog->id,'slug'=>Illuminate\Support\Str::of($blog->title)->slug( '-')])}}">
                         <span class="titulo-Myraid "> LEER  HISTORIA ></span>
                     </a>
                 </p>

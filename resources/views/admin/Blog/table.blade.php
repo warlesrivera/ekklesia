@@ -30,10 +30,9 @@
 
 
 <script>
-     $(function () {
+    $(function () {
         startTable();
     });
-
     function startTable(){
         initTable("tableBlog",
                   "{{route('blog.list')}}",
@@ -54,9 +53,8 @@
                 )
 
     }
-
-    function show(id){
-        location.href='{{url('blog')}}/'+id;
+    function show(id,name){
+        location.href='{{url('blog')}}/'+id+'-'+name;
     }
     function deleteElement(id){
         swal.fire({

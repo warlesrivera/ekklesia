@@ -62,7 +62,7 @@ class BlogController extends ApiController
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Blog $blog,$slug = null)
     {
         $blog =$this->blogInterface->addCount($blog);
         return view('blog.show',compact('blog'));
