@@ -124,6 +124,30 @@ class BlogDecorator implements BlogInterface
         }
     }
 
+    public function likes(Blog $blog){
+        try {
+            $data = $this->datosRepositorio->likes($blog);
+            if(blank($data))
+                 throw new \Exception('no se pudo actualizar el comentario en el blog intentalo de nuevo.');
+
+                 $likes=$blog->likes->count();
+
+                 return  [
+                     'success' => true,
+                     'code' => 200,
+                     "data" => ['message' => 'información Actualizados '. $data,'like'=>$likes,]
+
+                 ];
+         } catch (\Exception $e) {
+             Log::error($e->getMessage() . ' Line: ' . $e->getLine() . ' File: ' . $e->getFile());
+             return  [
+                 'success' => false,
+                 'code' => 500,
+                 "data" => ['message' => $e->getMessage()]
+             ];
+         }
+    }
+
     public function addCount(Blog $blog){
         $blog->count++;
         $blog->save();

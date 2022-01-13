@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
+    public  $timestamps = false;
 
     protected $fillable = ['likeable_id','likeable_type','like','user_id'];
 

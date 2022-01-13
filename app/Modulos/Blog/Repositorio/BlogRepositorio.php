@@ -108,4 +108,14 @@ class BlogRepositorio
             "date" =>Carbon::now()
         ]);
     }
+
+    public function likes($blog){
+
+        $like=$blog->likes()->where('user_id',Auth::id())->first();
+        if(filled($like)){
+            return $like->delete()?'ya no te gusta este blog':'no se pudo alamcenar intentalo mas tarde.';
+        }else{
+            return $blog->likes()->create(['user_id'=>Auth::id(),'like'=>true])?'te gusta este blog':'';
+        }
+    }
 }

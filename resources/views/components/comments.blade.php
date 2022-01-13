@@ -28,7 +28,6 @@
     </div>
 </div>
 @push('scripts')
-
     <script>
     function send(){
         var formData = new FormData(document.getElementById("comment-form"));

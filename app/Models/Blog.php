@@ -23,9 +23,11 @@ class Blog extends Model{
     }
 
     public function comment(){
-        return $this->morphMany('App\Models\Comment', 'commentable');
+        return $this->morphMany('App\Models\Comment','commentable');
     }
 
-
+    public function likes(){
+        return $this->morphMany('App\Models\Like','likeable');
+    }
 
 }

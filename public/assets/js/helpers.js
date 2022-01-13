@@ -8,7 +8,7 @@ function ajaxSend(url ,method,data=null ){
             contentType: false,
             data: data,
             success: function(data) {
-                if(method=='POST' || method=='DELETE'){
+                if(data.message!=undefined){
                     swal.fire({
                         type: 'success',
                         title: 'Datos guardados',

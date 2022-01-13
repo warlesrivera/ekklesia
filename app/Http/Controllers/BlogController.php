@@ -121,7 +121,14 @@ class BlogController extends ApiController
         : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
 
-    public function comment(Request $request,Blog $blog)
+    public function likes(Blog $blog){
+        $datos =$this->blogInterface->likes($blog);
+        return  $datos['success']
+        ? $this->successResponse($datos['data'], $datos['code'])
+        : $this->errorResponse($datos['data']['message'], $datos['code']);
+    }
+
+    public function comments(Request $request,Blog $blog)
     {
         $datos =$this->blogInterface->comment($request,$blog);
         return  $datos['success']

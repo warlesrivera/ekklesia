@@ -13,5 +13,6 @@ interface BlogInterface
     public function update(Request $request, Blog $blog);
     public function destroy(Blog $blog);
     public function comment(Request $request,Blog $blog);
+    public function likes(Blog $blog);
 
 }

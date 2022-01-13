@@ -23,11 +23,17 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/ciudad/{name?}',[ DataController::class,'index'])->name('welcome');
+
 Route::get('/home',[HomeController::class, 'index'])->name('home');
+
+//blog
 Route::resource('/blog',BlogController::class);
 Route::get('blog/{blog}-{slug}',[BLogCOntroller::class,'show'])->name('blog.show.slug');
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
-Route::post('/blog/comment/{blog?}',[BlogController::class,'comment'])->name('blog.comment');
+Route::post('/blog/comment/{blog?}',[BlogController::class,'comments'])->name('blog.comment');
+Route::get('/blog/like/{blog?}',[BlogController::class,'likes'])->name('blog.likes');
+//fin blog
+
 Route::get('/landing',[LandingPageController::class,'index'])->name('landing.index');
 
 Route::resource('/team',TeamController::class);
