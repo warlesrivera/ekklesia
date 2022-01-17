@@ -11,14 +11,12 @@ if(! function_exists('saveImages')){
             foreach ($request->file('images') as $key => $img_tmp) {
                 array_push($imagenArray, Attachment::image($img_tmp,$folder));
             }
-
             return $imagenArray;
         }
         return null;
 
     }
 }
-
 
 if(! function_exists('deleteImages')){
 

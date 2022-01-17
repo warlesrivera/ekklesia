@@ -116,12 +116,8 @@
 
 
     <script src="{{asset('assets/stylesAdm/js/demo/chart-area-demo.js')}}"></script>
-    
-    
 
 
-
-    
     <script src="{{asset("assets/libraries/moment/moment.min.js")}}"></script>
     <script src="{{asset("assets/libraries/fullCalendar/fullcalendar.min.js")}}"></script>
     <script src="{{asset("assets/libraries/bootstrap-datepicker/js/bootstrap-datepicker.js")}}"></script>
@@ -134,8 +130,10 @@
     <script src="{{asset('assets/stylesAdm/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('assets/stylesAdm/js/demo/chart-pie-demo.js')}}"></script>
     <script src="{{asset('assets/js/helpers.js')}}"></script>
+    <script src="{{asset('assets/libraries/ckeditor5/ckeditor.js')}}"></script>
 
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid= ra-5de9230971ae6ef0"></script>
+    @include('ckfinder::setup')
     @stack('scripts')
 
 

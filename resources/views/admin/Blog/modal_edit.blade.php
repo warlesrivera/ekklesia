@@ -13,7 +13,6 @@
             {{ method_field('PUT') }}
             <input type="hidden" name="id" id="id">
             @include('admin.Blog.form',['type'=>'edit'])
-
             <div id="sectionImages"></div>
         </form>
         </div>
@@ -23,32 +22,39 @@
         </div>
     </div>
     </div>
+
+
 </div>
 
 
 @push('scripts')
     <script>
+       var ckEditor;
+       builCKeditor('description_edit').then((data)=>{
+           ckEditor=data;
+       });
 
         function edit(id){
+            console.log(ckEditor);
                 var url = "{{url('blog')}}/"+id+'/edit';
                 ajaxSend(url,'GET').then((data)=>{
                     obj=data.data;
                     $("#create-blog-edit #id").val(obj.data.id);
                     $("#title_edit").val(obj.data.title);
-                    CKEDITOR.instances['description_edit'].setData(obj.data.description)
+                    $("#description_edit").val(obj.data.description)
+                    ckEditor.data.set(obj.data.description);
                     $("#new-blog-edit").modal('show');
                     if(obj.data.state==1)
                         // document.getElementById("state_edit").checked = true;
                     if(obj.data.elementImage!= undefined)
                         $("#sectionImages").html(obj.data.elementImage)
 
-
                 })
         }
 
         function update(){
                 var formData = new FormData(document.getElementById("create-blog-edit"));
-                    formData.append('description',CKEDITOR.instances['description_edit'].getData());
+
                 var url = "{{url('blog')}}/"+$("#id").val();
                 ajaxSend(url,'POST',formData)
                 .then((data)=>{

@@ -35,7 +35,10 @@ class Attachment extends Model
         }
 
         //verify file
-        $dir = config('filesconfig.'.$folder.'.dir').'/'. Auth::id().'/';
+        $dir = config('filesconfig.'.$folder.'.dir');
+        if($folder!='ckeditorImage')
+            $dir .= Auth::id().'/';
+
 
         // //Set directory to image
 

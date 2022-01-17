@@ -1,3 +1,4 @@
+
 function ajaxSend(url ,method,data=null ){
 
     return  new Promise((resolve,reject)=>{
@@ -54,7 +55,6 @@ function deleteAjax(url,token){
 
 }
 
-
 function initTable(idTabla,ajaxUrl,column,buttons){
     tabla=$("#"+idTabla).DataTable({
             dom: 'Bfrtip',
@@ -72,8 +72,47 @@ function initTable(idTabla,ajaxUrl,column,buttons){
         });
 }
 
-
 function deleteTable(idTable){
     $("#"+idTable).DataTable().destroy();
 }
+
+function builCKeditor(id){
+
+    return  new Promise((resolve,reject)=>{
+        ClassicEditor
+        .create( document.querySelector('#'+id), {
+            items: [
+                'heading', '|',
+                'alignment', '|',
+                'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
+                'link', '|',
+                'bulletedList', 'numberedList', 'todoList',
+                '-', // break point
+                'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
+                'code', 'codeBlock', '|',
+                'insertTable', '|',
+                'outdent', 'indent', '|',
+                'uploadImage', 'blockQuote', '|',
+                'undo', 'redo'
+             ],
+             image: {
+                toolbar: [ 'toggleImageCaption', 'imageTextAlternative' ],
+                styles: {
+                    options: [ 'alignLeft', 'alignRight' ]
+                }
+            },
+            shouldNotGroupWhenFull: true,
+            extraPlugins: [ SimpleCustomUploadAdapterPlugin ],
+        } )
+        .then( editor => {
+            resolve(editor);
+        } )
+        .catch( err => {
+            reject(err.stack)
+
+        } );
+    });
+
+}
+
 

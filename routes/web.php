@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -33,13 +34,13 @@ Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::post('/blog/comment/{blog?}',[BlogController::class,'comments'])->name('blog.comment');
 Route::get('/blog/like/{blog?}',[BlogController::class,'likes'])->name('blog.likes');
 Route::get('/blog/like/{blog?}',[BlogController::class,'likes'])->name('blog.likes');
-Route::post ( 'ckeditor/upload' , 'LegendsController@upload' )->name('ckeditor.upload');
 
 //fin blog
 
 Route::get('/landing',[LandingPageController::class,'index'])->name('landing.index');
 
 Route::resource('/team',TeamController::class);
-Route::get('/team-list',[TeamController::class,'list'])->name('team.list');
-Route::post('/team/users/{team?}',[TeamController::class,'teamUser'])->name('team.relationUser');
+Route::get('ckeditor', [CkeditorController::class,'index']);
+Route::post('ckeditor/upload',[CkeditorController::class,'upload'])->name('ckeditor.upload');
+
 
