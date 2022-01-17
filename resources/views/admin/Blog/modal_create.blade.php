@@ -24,6 +24,7 @@
 
 @push('scripts')
 <script>
+
     function save(){
         var formData = new FormData(document.getElementById("create-blog"));
             formData.append('description',CKEDITOR.instances['description_create'].getData());

@@ -126,5 +126,4 @@ class TeamController extends ApiController
         : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
 
-
 }

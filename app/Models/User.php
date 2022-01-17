@@ -51,12 +51,15 @@ class User extends Authenticatable
     ];
 
 
-    public function getFullNameAttribute()
-    {
+    public function getFullNameAttribute(){
         return "{$this->name} {$this->last_name}";
     }
 
     public function teams(){
         return $this->belongsToMany(Team::class,'teams_users','user_id','team_id');
+    }
+
+    public function egroup(){
+        return $this->belongsToMany(Team::class,'egroups_users','user_id','egroup_id');
     }
 }

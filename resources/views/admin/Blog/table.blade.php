@@ -48,7 +48,10 @@
                   [{
                         "text": "Crear Blog",
                         "className": 'btn btn-dark mt-3  btn-xs text-black',
-                        'action':function(e, dt, button, config ){$('#new-blog').modal('show')},
+                        'action':function(e, dt, button, config ){
+                            ckEditUpload('description_create');
+                            $('#new-blog').modal('show')
+                            },
                   }]
                 )
 
@@ -78,6 +81,10 @@
                 }
             });
     }
+
+
+
+
 
 </script>
 @endpush

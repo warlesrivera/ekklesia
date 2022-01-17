@@ -17,7 +17,7 @@ class ModuleProvider extends ServiceProvider
             'Blog',
             'LandingPage',
             'Team',
-            'Comment'
+            'Egroup'
         ];
 
         foreach ($modulos as $module) {

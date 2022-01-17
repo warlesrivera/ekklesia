@@ -32,6 +32,9 @@ Route::get('blog/{blog}-{slug}',[BLogCOntroller::class,'show'])->name('blog.show
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::post('/blog/comment/{blog?}',[BlogController::class,'comments'])->name('blog.comment');
 Route::get('/blog/like/{blog?}',[BlogController::class,'likes'])->name('blog.likes');
+Route::get('/blog/like/{blog?}',[BlogController::class,'likes'])->name('blog.likes');
+Route::post ( 'ckeditor/upload' , 'LegendsController@upload' )->name('ckeditor.upload');
+
 //fin blog
 
 Route::get('/landing',[LandingPageController::class,'index'])->name('landing.index');

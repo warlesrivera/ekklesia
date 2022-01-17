@@ -13,6 +13,7 @@
             {{ method_field('PUT') }}
             <input type="hidden" name="id" id="id">
             @include('admin.Blog.form',['type'=>'edit'])
+
             <div id="sectionImages"></div>
         </form>
         </div>
@@ -37,9 +38,11 @@
                     CKEDITOR.instances['description_edit'].setData(obj.data.description)
                     $("#new-blog-edit").modal('show');
                     if(obj.data.state==1)
-                        document.getElementById("state_edit").checked = true;
+                        // document.getElementById("state_edit").checked = true;
                     if(obj.data.elementImage!= undefined)
                         $("#sectionImages").html(obj.data.elementImage)
+
+
                 })
         }
 
