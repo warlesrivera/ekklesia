@@ -8,14 +8,30 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use stdClass;
+use Illuminate\Support\Str;
 class BlogRepositorio
 {
     public function list()
     {
-        $blog = Blog::where('state', Config::get('constants.ACTIVO'))->get();
+
+        $blog = Blog::all();
+
+        if(Auth::user()->roles()->first()->id!=3)
+            $blog = Blog::where('state', Config::get('constants.ACTIVO'))->orWhere('user_id',Auth::id())->get();
+
+
         return datatables()->of($blog)
             ->addColumn('action', function ($row) {
-                return view()->make('admin.components.button_action',compact('row'));
+
+                $route=Str::of($row->title)->slug('-');
+                $row->url=route('blog.show', "{$row->id}-{$route}");
+                $row->url_destroy=route('blog.destroy', [$row->id]);
+                $type='Blog';
+                return view()->make('admin.components.button_action',compact('row','type'));
+
+            })
+            ->addColumn('roles', function ($row) {
+
             })
             ->addColumn('date', function ($row) {
                 return $row->created_at->format('d-m-Y');
@@ -32,13 +48,14 @@ class BlogRepositorio
     {
 
         $images = null;
-        $blog               = new Blog();
-        $blog->title        = $request->title;
-        $blog->description  = $request->description;
-        $blog->images       = $images;
-        $blog->state        = filled($request->state)?$request->state:Config::get('constants.ESTADO_INACTIVO');
-        $blog->user_id      = Auth::id();
-        $blog->count        = 0;
+        $blog                   = new Blog();
+        $blog->title            = $request->title;
+        $blog->description      = $request->description;
+        $blog->images           = $images;
+        $blog->state            = filled($request->state)?$request->state:Config::get('constants.INACTIVO');
+        $blog->user_id          = Auth::id();
+        $blog->headquarter_id   = Auth::user()->headquarter_id;
+        $blog->count            = 0;
 
         if ($request->file('images'))
          $blog->images =json_encode( saveImages($request,'blog'));

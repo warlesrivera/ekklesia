@@ -73,9 +73,6 @@ class InitWeb extends Command
         $user->save();
         $user->assignRole(1);
 
-
-
-
         echo'comando finalizado';
     }
 }

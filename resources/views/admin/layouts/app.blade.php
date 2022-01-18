@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Comunife Manizales') }}</title>
 
     <!-- Custom fonts for this template-->
@@ -26,6 +26,8 @@
     <link href="{{asset("assets/libraries/bootstrap-fileinput/css/fileinput.min.css")}}" rel="stylesheet">
     <link href="{{asset("assets/libraries/bootstrap-tagsinput-latest/src/bootstrap-tagsinput.css")}}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{asset("assets/stylesAdm/vendor/datatables/dataTables.bootstrap4.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/stylesAdm/vendor/datatables/responsive.dataTables.min.css")}}">
 
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     @yield('style')
@@ -131,7 +133,20 @@
     <script src="{{asset('assets/stylesAdm/js/demo/chart-pie-demo.js')}}"></script>
     <script src="{{asset('assets/js/helpers.js')}}"></script>
     <script src="{{asset('assets/libraries/ckeditor5/ckeditor.js')}}"></script>
-
+    <script src="{{asset('assets/js/jquery.steps.min.js')}}"></script>
+    <script src="{{asset('assets/js/constants.js')}}"></script>
+    <script src="{{asset('assets/stylesAdm/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/stylesAdm/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/dataTables.buttons.min.js")}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/buttons.bootstrap4.min.js")}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/jszip.min.js")}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/pdfmake.min.js ")}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/vfs_fonts.js")}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/buttons.html5.min.js")}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/buttons.print.min.js")}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/buttons.colVis.min.js")}}"></script>
+    <script src="{{asset("assets/stylesAdm/vendor/datatables/dataTables.responsive.min.js")}}"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid= ra-5de9230971ae6ef0"></script>
     @include('ckfinder::setup')
     @stack('scripts')
