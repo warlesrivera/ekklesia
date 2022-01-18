@@ -15,18 +15,6 @@
 </div>
 
 @push('scripts')
-<script src="{{asset('assets/stylesAdm/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/stylesAdm/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
-
-<script src="{{asset("assets/stylesAdm/vendor/datatables/dataTables.buttons.min.js")}}"></script>
-<script src="{{asset("assets/stylesAdm/vendor/datatables/buttons.bootstrap4.min.js")}}"></script>
-<script src="{{asset("assets/stylesAdm/vendor/datatables/jszip.min.js")}}"></script>
-<script src="{{asset("assets/stylesAdm/vendor/datatables/pdfmake.min.js ")}}"></script>
-<script src="{{asset("assets/stylesAdm/vendor/datatables/vfs_fonts.js")}}"></script>
-<script src="{{asset("assets/stylesAdm/vendor/datatables/buttons.html5.min.js")}}"></script>
-<script src="{{asset("assets/stylesAdm/vendor/datatables/buttons.print.min.js")}}"></script>
-<script src="{{asset("assets/stylesAdm/vendor/datatables/buttons.colVis.min.js")}}"></script>
-
 
 <script>
      $(function () {
@@ -47,50 +35,22 @@
             "text": "Crear E-TEAM",
             "className": 'btn btn-dark mt-3  btn-xs text-black',
             'action':function(e, dt, button, config ){
-            $('#new-team').modal('show')
+                $("#form-team")[0].reset();
+                editarBtn()
             },
         }])
     }
-    function limitDescription(type){
-        val=document.getElementById("description_short_"+type).value;
+    function limitDescription(){
+        val=document.getElementById("description_short").value;
         if(val.length >150){
             swal.fire({
                 type: 'warning',
                 title: 'Atención',
                 html: 'no puede superar el numer de caracteres'
             });
-            document.getElementById("description_short_"+type).value=val.substring(0,150);
+            document.getElementById("description_short").value=val.substring(0,150);
         }
     }
-
-
-    function show(id){
-
-        location.href='{{url('team')}}/'+id;
-    }
-    function deleteElement(id){
-        swal.fire({
-              type: 'warning',
-              title: '¡Atención!',
-              html:'¿Desea eliminar este team?',
-
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Si',
-              cancelButtonText:'No',
-            }).then(function (result) {
-                if (result.value) {
-                    var url = "{{url('team')}}/"+id;
-                    deleteAjax(url,'{{ csrf_token() }}')
-                    .then(()=>{
-                        deleteTable("tableTeam");
-                        startTable();
-                    });
-                }
-            });
-    }
-
 </script>
 @endpush
 

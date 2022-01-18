@@ -56,14 +56,7 @@
         });
     }
 
-    function rmIMG(element) {
-        element.remove();
-        var imgs = [];
-        for (var i = $('.galery-item').length - 1; i >= 0; i--) {
-            imgs.push($($('.galery-item')[i]).data('img'));
-        }
-        $('[name="MoreimgGaleryPre"]').val(JSON.stringify(imgs));
-    }
+
 
 </script>
 @endpush

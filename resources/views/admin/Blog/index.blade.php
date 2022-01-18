@@ -26,7 +26,6 @@
         builCKeditor('description').then((data)=>{
             ckEditor=data;
         });
-
         function edit(id){
 
             var url = "{{url('blog')}}/"+id+'/edit';
@@ -36,7 +35,7 @@
                 $("#title").val(obj.data.title);
                 $("#description").val(obj.data.description)
                 ckEditor.data.set(obj.data.description);
-                editarBtn('form-blog')
+                editarBtn()
 
                 // if(obj.data.state==1)
                     // document.getElementById("state_edit").checked = true;
@@ -45,17 +44,6 @@
 
             })
         }
-
-        function rmIMG(element) {
-
-            element.remove();
-            var imgs = [];
-            for (var i = $('.galery-item').length - 1; i >= 0; i--) {
-                imgs.push($($('.galery-item')[i]).data('img'));
-            }
-            $('[name="MoreimgGaleryPre"]').val(JSON.stringify(imgs));
-        }
-
 
     </script>
 @endpush

@@ -3,6 +3,7 @@
 namespace App\Modulos\Team\Repositorio;
 
 use App\Models\Team;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
@@ -14,7 +15,11 @@ class TeamRepositorio
 
         return datatables()->of($blog)
             ->addColumn('action', function ($row) {
-                return view()->make('admin.components.button_action',compact('row'));
+                $route=Str::of($row->name)->slug('-');
+                $row->url=route('team.show', "{$row->id}-{$route}");
+                $row->url_destroy=route('team.destroy', [$row->id]);
+                $type='team';
+                return view()->make('admin.components.button_action',compact('row','type'));
             })
             ->addColumn('date', function ($row) {
                 return $row->created_at->format('d-m-Y');
@@ -65,7 +70,10 @@ class TeamRepositorio
 
         }
         $team->fill($request->except('images'));
+
+        if(!blank($request->images))
         $team->images=json_encode($team->images);
+
 
         return $team->save();
     }

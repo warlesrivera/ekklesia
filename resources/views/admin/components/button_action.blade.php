@@ -6,7 +6,7 @@
     {{ csrf_field() }}
 </form>
 
-@if (Route::currentRouteName() =='team.list')
+@if ($type =='team')
 <i class="text-warning" onclick="teamUser({{$row->id}})" style="cursor: :pointer" ><span class="fa fa-users"></span></i>
 @endif
 

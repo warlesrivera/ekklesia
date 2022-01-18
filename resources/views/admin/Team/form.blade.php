@@ -1,16 +1,18 @@
+{{ csrf_field() }}
+<input type="hidden" name="id" id="id">
 <div class="form-group">
     <label for="titulo">Nombre de E_TEAM</label>
-    <input type="text" class="form-control" id="name_{{$type}}" name="name" id="name" aria-describedby="nameHelp"  placeholder="Nombre ...">
+    <input type="text" class="form-control" id="name" name="name" id="name" aria-describedby="nameHelp"  placeholder="Nombre ...">
     <small id="nameHelp" class="form-text text-muted">Nmobre del E-TEAM </small>
 </div>
 <div class="form-group">
     <label for="description">descripción corta</label>
-    <textarea name="description_short_{{$type}}" id="description_short_{{$type}}" onchange="limitDescription('{{$type}}')" class="form-control" cols="10" rows="3"></textarea>
+    <textarea name="description_short" id="description_short" onchange="limitDescription()" class="form-control" cols="10" rows="3"></textarea>
 </div>
 
 <div class="form-group">
     <label for="description">descripción</label>
-    <textarea name="description_{{$type}}" id="description_{{$type}}" class="ckeditor" cols="30" rows="10"></textarea>
+    <textarea name="description" id="description"  cols="30" rows="10"></textarea>
 </div>
 
 <div class="py-3">

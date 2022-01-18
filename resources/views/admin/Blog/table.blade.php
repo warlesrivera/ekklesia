@@ -38,7 +38,7 @@
                         'action':function(e, dt, button, config ){
                             $("#form-blog")[0].reset();
                             ckEditor.data.set('');
-                            crearBtn('form-blog')
+                            crearBtn()
 
                             },
                   }]

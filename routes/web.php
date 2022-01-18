@@ -40,6 +40,8 @@ Route::get('/blog/like/{blog?}',[BlogController::class,'likes'])->name('blog.lik
 Route::get('/landing',[LandingPageController::class,'index'])->name('landing.index');
 
 Route::resource('/team',TeamController::class);
+Route::get('/team-list',[TeamController::class,'list'])->name('team.list');
+
 Route::get('ckeditor', [CkeditorController::class,'index']);
 Route::post('ckeditor/upload',[CkeditorController::class,'upload'])->name('ckeditor.upload');
 

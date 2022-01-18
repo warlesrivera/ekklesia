@@ -2,13 +2,13 @@
 
 namespace App\Modulos\Blog\Repositorio;
 
+use stdClass;
 use App\Models\Blog;
-use App\Modulos\User\Repositorio\UsersRepositorio;
+use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
-use stdClass;
-use Illuminate\Support\Str;
+use App\Modulos\User\Repositorio\UsersRepositorio;
 class BlogRepositorio
 {
     public function list()
@@ -68,10 +68,11 @@ class BlogRepositorio
     }
     public function update($request, Blog $blog)
     {
+
         $dataImages=[];
         $newDataImages=[];
         $blog->images= json_decode($blog->images);
-        if (array_key_exists("MoreimgGaleryPre",$request->all())  && !empty($blog->images)){
+        if (array_key_exists("MoreimgGaleryPre",$request->all())  && !blank($blog->images)){
 
             $dataImages= deleteImages(json_decode($request->MoreimgGaleryPre),'blog',$blog->images);
             if(blank($blog->images))
@@ -89,9 +90,11 @@ class BlogRepositorio
                 $blog->images=$newDataImages;
 
         }
-        $blog->fill($request->except('images'));
-        $blog->images=json_encode($blog->images);
 
+        $blog->fill($request->except('images'));
+
+        if(!blank($request->images))
+        $blog->images=json_encode($blog->images);
         return $blog->save();
     }
     public function destroy(Blog $blog)

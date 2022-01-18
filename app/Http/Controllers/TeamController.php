@@ -55,7 +55,7 @@ class TeamController extends ApiController
     {
         $datos =$this->teamInterface->store($request);
         return  $datos['success']
-        ? $this->successResponse([ 'data' =>$datos['data']], $datos['code'])
+        ? $this->successResponse($datos['data'], $datos['code'])
         : $this->errorResponse($datos['data']['message'], $datos['code']);
     }
 

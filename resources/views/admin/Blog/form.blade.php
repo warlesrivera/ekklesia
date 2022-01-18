@@ -1,4 +1,5 @@
 {{ csrf_field() }}
+
 <input type="hidden" name="id" id="id">
 <div class="form-group">
     <label for="titulo">Titulo</label>

@@ -12,6 +12,7 @@ function ajaxSend(url ,method,data=null ){
             contentType: false,
             data: data,
             success: function(data) {
+
                 if(data.message!=undefined){
                     swal.fire({
                         type: 'success',
@@ -42,7 +43,7 @@ function initTable(idTabla,ajaxUrl,column,buttons){
             language:{url:'../assets/stylesAdm/vendor/datatables/spanish.json'},
             columns:column,
             order: [[ 2, "DESC" ]],
-            pageLength: 6,
+            pageLength: 4,
                 buttons:buttons,
             fnCreatedRow: function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData.clave);
@@ -126,38 +127,51 @@ function deleteElement(type,url){
         });
 }
 function save(form,type){
-
     var formData = new FormData(document.getElementById(form));
-    formData.append('description',ckEditor.getData());
+    if(type=="blog" || type=="team")
+       formData.append('description',ckEditor.getData());
+
     var url = `/${type}`;
 
-    ajaxSend(url,'POST',formData).then((data)=>{
-        type = type.charAt(0).toUpperCase() + type.slice(1);
-        deleteTable(`table${type}`);
-        startTable();
-        $("#form-blog")[0].reset();
-            ckEditor.data.set('');
-    })
-}
-function update(form,type){
-    var formData = new FormData(document.getElementById("form-blog"));
-    var url = "{{url('blog')}}/"+$("#id").val();
-    var url = `${window.location.hostname}/${type}/`+ $(`#${form} #id`).val();
+    sendOK(url,'POST',formData,type,form);
 
-    ajaxSend(url,'POST',formData)
-    .then((data)=>{
+}
+function sendOK(url,method,formData,type,form){
+
+    ajaxSend(url,method,formData).then((data)=>{
         type = type.charAt(0).toUpperCase() + type.slice(1);
         deleteTable(`table${type}`);
         startTable();
         $(`#${form}`)[0].reset();
-    });
+            ckEditor.data.set('');
+    })
+}
+
+function update(form,type){
+    var formData = new FormData(document.getElementById(form));
+    if(type=="blog" || type=="team")
+       formData.append('description',ckEditor.getData());
+
+
+    formData.append('_method','PUT');
+    var url = `/${type}/`+ $(`#${form} #id`).val();
+    sendOK(url,"POST",formData,type,form)
 
 }
-function crearBtn(form){
-    $(`#${form} #btn-crear`).removeClass('d-none');
-    $(`#${form} #btn-editar`).addClass('d-none');
+function crearBtn(){
+    $(`#btn-guardar`).removeClass('d-none');
+    $(`#btn-editar`).addClass('d-none');
 }
-function editarBtn(form){
-    $(`#${form} #btn-crear`).addClass('d-none');
-    $(`#${form} #btn-editar`).removeClass('d-none');
+function editarBtn(){
+    $(`#btn-guardar`).addClass('d-none');
+    $(`#btn-editar`).removeClass('d-none');
+}
+
+function rmIMG(element) {
+    element.remove();
+    var imgs = [];
+    for (var i = $('.galery-item').length - 1; i >= 0; i--) {
+        imgs.push($($('.galery-item')[i]).data('img'));
+    }
+    $('[name="MoreimgGaleryPre"]').val(JSON.stringify(imgs));
 }
