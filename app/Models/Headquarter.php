@@ -13,15 +13,15 @@ class Headquarter extends Model
     protected $fillable = ['name','address','lat','long','schedule'];
 
     public function blogs(){
-        return $this->HasMany('App\Models\Blog', 'id_hadquarter', 'id');
+        return $this->HasMany(Blog::class, 'id_hadquarter', 'id');
     }
 
     public function users(){
-        return $this->HasMany('App\Models\User', 'id_hadquarter', 'id');
+        return $this->HasMany(User::class, 'id_hadquarter', 'id');
     }
 
     public function landing(){
-        return $this->HasOne('App\Models\LandingPage','id_headquarter','id');
+        return $this->HasOne(LandingPage::class,'id_headquarter','id');
     }
 
 }

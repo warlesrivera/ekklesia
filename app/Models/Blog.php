@@ -15,7 +15,7 @@ class Blog extends Model{
     ];
 
     public function user(){
-        return $this->BelongsTo('App\Models\User', 'user_id', 'id');
+        return $this->BelongsTo(User::class, 'user_id', 'id');
     }
 
     public function getNameStateAttribute(){
@@ -23,11 +23,11 @@ class Blog extends Model{
     }
 
     public function comment(){
-        return $this->morphMany('App\Models\Comment','commentable');
+        return $this->morphMany(Comment::class,'commentable');
     }
 
     public function likes(){
-        return $this->morphMany('App\Models\Like','likeable');
+        return $this->morphMany(Like::class,'likeable');
     }
 
 }

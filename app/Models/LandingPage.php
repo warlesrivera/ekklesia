@@ -8,6 +8,14 @@ class LandingPage extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['home','nostros'];
+    protected $fillable = ['url','name','headquarter_id'];
+
+    public function pageSection(){
+        return $this->hasMany(PageSection::class,'landing_page_id','id');
+    }
+
+    public function menu(){
+        return $this->hasOne(MenuPage::class,'landing_page_id','id');
+    }
 
 }
