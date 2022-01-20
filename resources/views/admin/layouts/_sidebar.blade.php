@@ -24,15 +24,15 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Home
+    Landing Pages
 </div>
 <li class="nav-item">
-    @if (@Auth::user()->hasRole('Manager'))
+
     <a class="nav-link" href="{{route('landing.index')}}">
         <i class="fas fa-fw fa-cog "></i>
         <span>Landing page</span>
     </a>
-    @endif
+
 </li>
 
 <!-- Nav Item - Pages Collapse Menu -->

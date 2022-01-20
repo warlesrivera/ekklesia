@@ -13,14 +13,14 @@ class DropColumnLanding extends Migration
      */
     public function up()
     {
-        Schema::table('landing_pages', function (Blueprint $table) {
-            $table->drop();
-        });
+
+        Schema::dropIfExists('landing_pages');
 
         Schema::create('landing_pages', function (Blueprint $table) {
             $table->id();
             $table->text('url');
             $table->text('name');
+            $table->integer('visits');
             $table->unsignedBigInteger('headquarter_id');
             $table->foreign('headquarter_id')->references('id')->on('headquarters');
             $table->timestamps();

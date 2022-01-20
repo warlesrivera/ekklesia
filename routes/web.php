@@ -5,6 +5,7 @@ use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\TeamController;
 
 /*
@@ -37,7 +38,6 @@ Route::get('/blog/like/{blog?}',[BlogController::class,'likes'])->name('blog.lik
 
 //fin blog
 
-Route::get('/landing',[LandingPageController::class,'index'])->name('landing.index');
 
 Route::resource('/team',TeamController::class);
 Route::get('/team-list',[TeamController::class,'list'])->name('team.list');
@@ -46,3 +46,4 @@ Route::get('ckeditor', [CkeditorController::class,'index']);
 Route::post('ckeditor/upload',[CkeditorController::class,'upload'])->name('ckeditor.upload');
 
 
+Route::resource('/landing',LandingPageController::class);

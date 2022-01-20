@@ -3,8 +3,8 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Nombre</th>
-                <th>sede</th>
+                <th>Sede </th>
+                <th>landingPage</th>
                 <th>Números de voluntarios</th>
                 <th>fecha de creacion</th>
                 <th>Acción</th>
