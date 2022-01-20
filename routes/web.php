@@ -45,5 +45,12 @@ Route::get('/team-list',[TeamController::class,'list'])->name('team.list');
 Route::get('ckeditor', [CkeditorController::class,'index']);
 Route::post('ckeditor/upload',[CkeditorController::class,'upload'])->name('ckeditor.upload');
 
+//landing
 
 Route::resource('/landing',LandingPageController::class);
+Route::get('/landing-list',[LandingPageController::class,'list'])->name('landing.list');
+
+//landing Menu
+Route::get('/change/menu/{type?}',[LandingPageController::class,'changeMenu'])->name('menu.change');
+
+// fin Landing

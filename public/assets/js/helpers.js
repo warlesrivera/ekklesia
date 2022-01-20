@@ -175,3 +175,10 @@ function rmIMG(element) {
     }
     $('[name="MoreimgGaleryPre"]').val(JSON.stringify(imgs));
 }
+ function spinner(){
+     return ` <div class="text-center">
+                <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+                </div>
+            </div>`;
+ }
