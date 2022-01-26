@@ -1,10 +1,9 @@
 @extends('admin.layouts.app')
 @section('content')
-
-
     <div class="col-12 p-0 m-0 row">
         @include('admin.LandingPage.components.create.landing_page')
         @include('admin.LandingPage.components.create.menu_page')
+        @include('admin.LandingPage.components.create.section')
     </div>
 @endsection
 

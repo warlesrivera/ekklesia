@@ -47,7 +47,7 @@
             <div id="content">
                 <div class="col-12 row p-0  m-0">
                         <div class="col-2 d-none d-block"></div>
-                        <div class="col-md-9 col-12 p-0 m-0">
+                        <div class="col-md-10 col-12 p-0 m-0">
                             @include('admin.layouts._topBar')
                             <!-- Begin Page Content -->
                             <div class="col-12 p-0 m-0 pt-5 mt-5 pl-2 ml-2">
