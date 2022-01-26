@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\EgroupController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingPageController;
@@ -54,3 +55,10 @@ Route::get('/landing-list',[LandingPageController::class,'list'])->name('landing
 Route::get('/change/menu/{type?}',[LandingPageController::class,'changeMenu'])->name('menu.change');
 
 // fin Landing
+
+
+//e-group
+Route::resource('/e-group',EgroupController::class);
+Route::get('/e-group-list',[EgroupController::class,'list'])->name('e-groups.list');
+
+//fin e-group

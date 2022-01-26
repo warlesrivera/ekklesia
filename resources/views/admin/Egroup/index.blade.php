@@ -4,18 +4,18 @@
        <div class="col-md-6 col-12 p-0 m-0">
             <div id="content-wrapper" class="d-flex flex-column">
                 <div class="container-fluid">
-                    <h1 class="h3 mb-2 text-gray-800">Blogs</h1>
-                    @include('admin.Blog.table')
+                    <h1 class="h3 mb-2 text-gray-800">E-GROUPS</h1>
+                    @include('admin.Egroup.table')
                 </div>
             </div>
        </div>
        <div class="col-md-6 col-12 p-0 m-0">
             <form name="form-blog" id="form-blog">
-                @include('admin.Blog.form')
+                @include('admin.Egroup.form')
             </form>
 
-            <button type="button" id="btn-guardar" onclick="save('form-blog','blog')" class="btn btn-primary">Crear Blog</button>
-            <button type="button" id="btn-editar" onclick="update('form-blog','blog')" class="btn btn-primary d-none">Editar Blog</button>
+            <button type="button" id="btn-guardar" onclick="save('form-egroup','egroup')" class="btn btn-primary">Crear E-GROUP</button>
+            <button type="button" id="btn-editar" onclick="update('form-egroup','egroup')" class="btn btn-primary d-none">Editar E-GROUP</button>
        </div>
    </div>
 @endsection
@@ -28,10 +28,10 @@
         });
         function edit(id){
 
-            var url = "{{url('blog')}}/"+id+'/edit';
+            var url = "{{url('egroup')}}/"+id+'/edit';
             ajaxSend(url,'GET').then((data)=>{
                 obj=data.data;
-                $("#form-blog #id").val(obj.data.id);
+                $("#form-egroup #id").val(obj.data.id);
                 $("#title").val(obj.data.title);
                 $("#description").val(obj.data.description)
                 ckEditor.data.set(obj.data.description);
