@@ -15,7 +15,7 @@ class EgroupController extends ApiController
 
     public function list()
     {
-        $datos =$this->blogInterface->list();
+        $datos =$this->eGroupInterface->list();
         return  $datos;
     }
 

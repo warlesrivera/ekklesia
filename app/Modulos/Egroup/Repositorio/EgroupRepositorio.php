@@ -3,18 +3,20 @@
 namespace App\Modulos\Egroup\Repositorio;
 
 use App\Models\Egroup;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 
 class EgroupRepositorio
 {
     public function list(){
-        $blog = Egroup::all();
+        $egroup = Egroup::all();
 
         if(Auth::user()->roles()->first()->id!=3)
-            $blog = Egroup::where('state', Config::get('constants.ACTIVO'))->orWhere('user_id',Auth::id())->get();
+            $egroup = Egroup::all();
 
-        return datatables()->of($blog)
+        return datatables()->of($egroup)
             ->addColumn('action', function ($row) {
-
                 $route=Str::of($row->title)->slug('-');
                 $row->url=route('blog.show', "{$row->id}-{$route}");
                 $row->url_destroy=route('egroup.destroy', [$row->id]);

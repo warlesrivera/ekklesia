@@ -22,7 +22,7 @@ class EgroupDecorator implements EgroupInterface
             $egroups  = $this->datosRepositorio->list();
             return   $egroups;
         } catch (\Exception $e) {
-            Log::error($e->getMessage() . ' Line: ' . $e->getLine() . ' File: ' . $e->getFile());
+            \Log::error($e->getMessage() . ' Line: ' . $e->getLine() . ' File: ' . $e->getFile());
             return  [
                 'success' => false,
                 'code' => 500,

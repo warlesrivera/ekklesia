@@ -10,6 +10,16 @@
     <label for="description">descripción</label>
     <textarea name="description" id="description" class="ckeditor" cols="30" rows="10"></textarea>
 </div>
+    <input type="hidden" name="lat" id="latitude" value="">
+    <input type="hidden" name="long" id="longitude" value="">
+
+    <div class="col-12 p-3 m-0 row ">
+        <div class="col-md-10 col-12">
+            <div id="map-ch"></div>
+        </div>
+    </div>
+
+
 
 {{-- <div class="py-3">
     <input type="file" name="images[]" id="images"  class="file" data-show-upload="false"
