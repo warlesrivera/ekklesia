@@ -7,9 +7,6 @@
             $("#menu-bars,#items-menu >li >a").removeClass("text-dark");
             $("#menu-bars,#items-menu >li >a").addClass("text-white");
             $("#items-menu >li").removeClass("li-black");
-            $("#logo-black").addClass('d-none');
-            $("#logo-white").removeClass('d-none');
-
     }else{
             $("#menu").addClass("menu-background-grey");
             $("#menu").removeClass("color-transparent");
@@ -17,35 +14,13 @@
             $("#items-menu >li >a").css("font-weight","500");
             $("#menu-bars,#items-menu >li >a").removeClass("text-white");
             $("#items-menu >li").addClass("li-black");
-            $("#logo-black").removeClass('d-none');
-            $("#logo-white").addClass('d-none');
+
+
+
+
 
     }
-  }
 
-// Menu responsive
-function openNav() {
-    document.getElementById("myNav").style.height = "100%";
-    $("#logo-black").removeClass('d-none');
-    $("#logo-white").addClass('d-none');
-    $("#btn-menu-responsive").addClass('d-none');
-  }
-
-  function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
-    $("#logo-black").addClass('d-none');
-    $("#logo-white").removeClass('d-none');
-    $("#btn-menu-responsive").removeClass('d-none');
 
   }
-
-$(window).on("scroll", function(){
-    if ($(this).scrollTop() >= $("#minstery").offset().top - $(this).height()+200){
-        $("#menu").css("background-color","#0e0e0e73")
-    }
-    else{
-        $("#menu").css("background-color","#ffffff00")
-    }
-});
-
 
